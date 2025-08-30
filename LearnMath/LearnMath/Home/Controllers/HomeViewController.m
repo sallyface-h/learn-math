@@ -14,13 +14,13 @@
 @implementation HomeViewController
 -(void)creatTopView
 {
-    UIView *topView = [[UIView alloc]init];
+    UIView *topView = [[UIView alloc] init];
     CGFloat topViewW = LearnMathScale(375.0);
     CGFloat topViewH = LearnMathScale(210.0);
     topView.frame = CGRectMake(0, 0, topViewW, topViewH);
     [self.view addSubview:topView];
     
-    UIImageView *home_smile = [[UIImageView alloc]init];
+    UIImageView *home_smile = [[UIImageView alloc] init];
     CGFloat smileImgX = LearnMathScale(102.0);
     CGFloat smileImgY = LearnMathScale(110.0);
     CGFloat smileImgW = LearnMathScale(170.0);
@@ -29,7 +29,7 @@
     [topView addSubview:home_smile];
     home_smile.image = [UIImage imageNamed:@"home_smile"];
     
-    UIImageView *learnmath_logo = [[UIImageView alloc]init];
+    UIImageView *learnmath_logo = [[UIImageView alloc] init];
     CGFloat logoImgX = LearnMathScale(48.0);
     CGFloat logoImgY = LearnMathScale(48.0);
     CGFloat logoImgW = LearnMathScale(280.0);
@@ -41,7 +41,7 @@
 
 -(void)creatBottomView
 {
-    UIView *bottomView = [[UIView alloc]init];
+    UIView *bottomView = [[UIView alloc] init];
     CGFloat bottomViewX = LearnMathScale(24.0);
     CGFloat bottomViewY = LearnMathScale(240.0);
     CGFloat bottomViewW = [UIScreen mainScreen].bounds.size.width - 2 * (LearnMathScale(24.0));
@@ -52,7 +52,7 @@
     NSMutableArray *arrayAccessButton = [NSMutableArray array];
     for (int i=0; i<5; i++)
     {
-        UIButton *access_button = [[UIButton alloc]init];
+        UIButton *access_button = [[UIButton alloc] init];
         CGFloat accessButtonX = 0;
         CGFloat accessButtonY = i * (LearnMathScale(68.0 + 18.0));
         CGFloat accessButtonW;
@@ -72,7 +72,7 @@
         [arrayAccessButton addObject:access_button];
     }
     UIButton *lastAccessButton = arrayAccessButton[4];
-    UIButton *list_Button = [[UIButton alloc]init];
+    UIButton *list_Button = [[UIButton alloc] init];
     CGFloat listButtonX = lastAccessButton.frame.origin.x + lastAccessButton.frame.size.width + (LearnMathScale(13.0));
     CGFloat listButtonY = lastAccessButton.frame.origin.y;
     CGFloat listButtonW = LearnMathScale(72.0);
@@ -84,7 +84,7 @@
     NSMutableArray *arrayFunctionButton = [NSMutableArray array];
     for (int i=0; i<4; i++)
     {
-        UIButton *function_Button = [[UIButton alloc]init];
+        UIButton *function_Button = [[UIButton alloc] init];
         CGFloat functionButtonX = i * (LearnMathScale(13.0 + 72.0));
         CGFloat functionButtonY = listButtonY + (LearnMathScale(24.0 + 68.0));
         CGFloat functionButtonW = listButtonW;
@@ -96,7 +96,7 @@
         [arrayFunctionButton addObject:function_Button];
     }
     
-    UIImageView *pro_image = [[UIImageView alloc]init];
+    UIImageView *pro_image = [[UIImageView alloc] init];
     CGFloat proX = LearnMathScale(295.0);
     CGFloat proY = LearnMathScale(426.0);
     CGFloat proW = LearnMathScale(42.0);
