@@ -6,7 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FA96E911ED469F9306CEE5CB /* Pods_LearnMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C394854E8E51F98E5211F3F /* Pods_LearnMath.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		2FB3F0312AD61DF6164629A0 /* Pods-LearnMath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnMath.debug.xcconfig"; path = "Target Support Files/Pods-LearnMath/Pods-LearnMath.debug.xcconfig"; sourceTree = "<group>"; };
+		7C394854E8E51F98E5211F3F /* Pods_LearnMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		825B917709BA58D5122F361C /* Pods-LearnMath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnMath.release.xcconfig"; path = "Target Support Files/Pods-LearnMath/Pods-LearnMath.release.xcconfig"; sourceTree = "<group>"; };
 		92B1AD6D2E615AF8004EB9DD /* LearnMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA96E911ED469F9306CEE5CB /* Pods_LearnMath.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C239F961C98447442348413 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C394854E8E51F98E5211F3F /* Pods_LearnMath.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		92B1AD642E615AF8004EB9DD = {
 			isa = PBXGroup;
 			children = (
 				92B1AD6F2E615AF8004EB9DD /* LearnMath */,
 				92B1AD6E2E615AF8004EB9DD /* Products */,
+				E5B62BCECEBA365E4694659A /* Pods */,
+				2C239F961C98447442348413 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +76,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E5B62BCECEBA365E4694659A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2FB3F0312AD61DF6164629A0 /* Pods-LearnMath.debug.xcconfig */,
+				825B917709BA58D5122F361C /* Pods-LearnMath.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92B1AD852E615AF9004EB9DD /* Build configuration list for PBXNativeTarget "LearnMath" */;
 			buildPhases = (
+				D6951489C12F2988580F42F4 /* [CP] Check Pods Manifest.lock */,
 				92B1AD692E615AF8004EB9DD /* Sources */,
 				92B1AD6A2E615AF8004EB9DD /* Frameworks */,
 				92B1AD6B2E615AF8004EB9DD /* Resources */,
+				673EA7BED0BE68EA96A87F73 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				92B1AD6F2E615AF8004EB9DD /* LearnMath */,
 			);
 			name = LearnMath;
-			packageProductDependencies = (
-			);
 			productName = LearnMath;
 			productReference = 92B1AD6D2E615AF8004EB9DD /* LearnMath.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +153,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		673EA7BED0BE68EA96A87F73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LearnMath/Pods-LearnMath-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LearnMath/Pods-LearnMath-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LearnMath/Pods-LearnMath-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6951489C12F2988580F42F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LearnMath-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		92B1AD692E615AF8004EB9DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,6 +212,7 @@
 /* Begin XCBuildConfiguration section */
 		92B1AD862E615AF9004EB9DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FB3F0312AD61DF6164629A0 /* Pods-LearnMath.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -166,6 +240,7 @@
 		};
 		92B1AD872E615AF9004EB9DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 825B917709BA58D5122F361C /* Pods-LearnMath.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -228,7 +303,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -289,7 +364,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
