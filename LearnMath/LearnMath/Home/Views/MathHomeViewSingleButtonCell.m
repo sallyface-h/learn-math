@@ -33,20 +33,20 @@
         }];
     
     _categoryTitle = [[UILabel alloc] init];
-    _categoryTitle.font = [UIFont systemFontOfSize:24];
+    _categoryTitle.font = [UIFont balooFontOfSize:24.0 weight:UIFontWeightBold];
     _categoryTitle.textColor = [UIColor colorForSet:ColorSetWhite];
     [self.categoryButton addSubview:self.categoryTitle];
     [self.categoryTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-               make.centerY.equalTo(self.categoryButton);
-               make.left.equalTo(self.categoryButton).offset(LearnMathScale(24.0));
+        make.centerY.equalTo(self.categoryButton);
+        make.leading.equalTo(self.categoryButton).offset(LearnMathScale(24.0));
            }];
     
     _categoryImage = [[UIImageView alloc] init];
     [self.categoryButton addSubview:self.categoryImage];
     [self.categoryImage mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerY.equalTo(self.categoryButton);
-                make.right.equalTo(self.categoryButton).offset(-LearnMathScale(22.0));
-                make.size.mas_equalTo(CGSizeMake(LearnMathScale(24.0), LearnMathScale(24.0)));
+        make.centerY.equalTo(self.categoryButton);
+        make.trailing.equalTo(self.categoryButton).offset(-LearnMathScale(22.0));
+        make.size.mas_equalTo(CGSizeMake(LearnMathScale(24.0), LearnMathScale(24.0)));
             }];
 }
 
@@ -63,4 +63,5 @@
         [self.delegate mathHomeViewSingleButtonCellDidTapButton:self];
     }
 }
+
 @end

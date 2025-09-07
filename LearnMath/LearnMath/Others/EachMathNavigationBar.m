@@ -1,39 +1,40 @@
 //
-//  MathNavigationBarManager.m
+//  EachMathNavigationBar.m
 //  LearnMath
 //
-//  Created by 基 on 2025/9/2.
+//  Created by 基 on 2025/9/5.
 //
 
-#import "MathNavigationBarManager.h"
+#import "EachMathNavigationBar.h"
+#import "MathCategoryViewController.h"
 
-@implementation MathNavigationBarManager
-+(UIColor *)configureNavigationViewController:(UICollectionViewController *) vc withMathCategory:(mathCategory)category
+@implementation EachMathNavigationBar
++(UIColor *)configureNavigationViewController:(UIViewController *)vc withMathCategory:(MathCategory)category
 {
     UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
     appearance.titleTextAttributes = @{
-        NSFontAttributeName: [UIFont boldSystemFontOfSize:20.0],
+        NSFontAttributeName: [UIFont balooFontOfSize:30.0 weight:UIFontWeightBold],
         NSForegroundColorAttributeName: [UIColor colorForSet:ColorSetWhite]
     };
+    
+    appearance.shadowColor = [UIColor clearColor];
     appearance.backButtonAppearance.normal.backgroundImage = [UIImage imageNamed:@"back"];
-    appearance.shadowColor = [UIColor clearColor]; 
     UIColor *bgcolor;
     switch (category)
     {
-        case mathCategoryAddition:
+        case MathCategoryAddition:
             vc.title = @"Addition";
             appearance.backgroundColor = [UIColor colorForSet:ColorSetDeepOrange];
             break;
-        case mathCategorySubtraction:
+        case MathCategorySubtraction:
             vc.title = @"Subtraction";
             appearance.backgroundColor = [UIColor colorForSet:ColorSetOrange];
             break;
-        case mathCategoryMultiplication:
+        case MathCategoryMultiplication:
             vc.title = @"Multiplication";
             appearance.backgroundColor = [UIColor colorForSet:ColorSetBlue];
-            
             break;
-        case mathCategoryDivision:
+        case MathCategoryDivision:
             vc.title = @"Division";
             appearance.backgroundColor = [UIColor colorForSet:ColorSetGreen];
             break;
@@ -45,4 +46,5 @@
     vc.navigationController.navigationBar.compactAppearance = appearance;
     return bgcolor;
 }
+
 @end

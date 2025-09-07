@@ -7,6 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "MathHomeViewController.h"
+#import "BaseNavigationController.h"
 @interface SceneDelegate ()
 
 @end
@@ -20,7 +21,7 @@
     self.window.frame = windowScene.coordinateSpace.bounds;
     self.window.backgroundColor = [UIColor whiteColor];
     MathHomeViewController *homeVc = [[MathHomeViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:homeVc];
+    BaseNavigationController *nav = [[BaseNavigationController alloc]initWithRootViewController:homeVc];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
 }

@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MathHomeHeaderView : UIView
+
 -(void)configureMathHomeHeaderView;
+
 @end
 
 NS_ASSUME_NONNULL_END

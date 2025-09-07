@@ -8,12 +8,15 @@
 #import <UIKit/UIKit.h>
 #import "ArithmeticConstant.h"
 #import "UIColor+UIColor_Appearance.h"
+#import "UIFont+UIFont_Appearance.h"
 @import Masonry;
 @class MathHomeViewSingleButtonCell;
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol MathHomeViewSingleButtonCellDelegate <NSObject>
+
 - (void)mathHomeViewSingleButtonCellDidTapButton:(MathHomeViewSingleButtonCell *)cell;
+
 @end
 
 @interface MathHomeViewSingleButtonCell : UICollectionViewCell
@@ -21,7 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIImageView *categoryImage;
 @property (nonatomic, strong) UIButton *categoryButton;
 @property (nonatomic, weak) id<MathHomeViewSingleButtonCellDelegate> delegate;
+
 -(void)configureWithColor:(UIColor *)color andTitle:(NSString *)title andImage:(NSString *)imageName;
+
 @end
 
 NS_ASSUME_NONNULL_END

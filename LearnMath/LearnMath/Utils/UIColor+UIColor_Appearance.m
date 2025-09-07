@@ -129,4 +129,5 @@
         }
         return [self colorWithHexString:hexString];
 }
+
 @end

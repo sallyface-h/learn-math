@@ -19,29 +19,30 @@
 
 -(void)configureMathHomeHeaderView
 {
-    UIImageView *background_image = [[UIImageView alloc] init];
-    [self addSubview:background_image];
-    background_image.image = [UIImage imageNamed:@"background_image"];
-    [background_image mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.and.left.and.right.equalTo(self);
+    UIImageView *home_background = [[UIImageView alloc] init];
+    [self addSubview:home_background];
+    home_background.image = [UIImage imageNamed:@"home_background"];
+    [home_background mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.leading.trailing.equalTo(self);
         make.height.mas_equalTo(LearnMathScale(180.0));
     }];
     
-    UIImageView *smile_image = [[UIImageView alloc] init];
-    smile_image.image = [UIImage imageNamed:@"smile_image"];
-    [self addSubview:smile_image];
-    [smile_image mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIImageView *home_smile = [[UIImageView alloc] init];
+    home_smile.image = [UIImage imageNamed:@"home_smile"];
+    [self addSubview:home_smile];
+    [home_smile mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(LearnMathScale(170.0), LearnMathScale(130.0)));
         make.top.equalTo(self).offset(LearnMathScale(110.0));
-        make.left.equalTo(self).offset(LearnMathScale(102.0));
+        make.centerX.equalTo(self);
     }];
     
-    UIImageView *logo_image = [[UIImageView alloc] init];
-    logo_image.image = [UIImage imageNamed:@"logo_image"];
-    [self addSubview:logo_image];
-    [logo_image mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIImageView *home_logo = [[UIImageView alloc] init];
+    home_logo.image = [UIImage imageNamed:@"home_logo"];
+    [self addSubview:home_logo];
+    [home_logo mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(LearnMathScale(280.0), LearnMathScale(60.0)));
-        make.top.and.left.equalTo(self).offset(LearnMathScale(48.8));
+        make.top.equalTo(self).offset(LearnMathScale(48.8));
+        make.centerX.equalTo(self);
     }];
 }
 

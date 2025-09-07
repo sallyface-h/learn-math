@@ -6,18 +6,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "MathHomeViewController.h"
 #import "ArithmeticConstant.h"
 #import "MathCateGoryViewCell.h"
-#import "MathCateGoryCollectionViewController.h"
+#import "MathCategoryViewController.h"
 #import "MathHomeViewMultiButtonCell.h"
 #import "MathHomeViewSingleButtonCell.h"
 #import "MathHomeHeaderView.h"
+#import "HomeSingleButtonModel.h"
+#import "HomeMultiButtonModel.h"
+@import Masonry;
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MathHomeViewController : UIViewController
-@property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) NSArray *multiButtonImgNameArr;
+@interface MathHomeViewController : BaseViewController
+
 @end
 
 NS_ASSUME_NONNULL_END

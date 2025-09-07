@@ -10,11 +10,17 @@
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define LearnMathScale(x) x*(SCREEN_HEIGHT/812.0)
-typedef NS_ENUM(NSInteger,mathCategory)
+typedef NS_ENUM(NSInteger,MathCategory)
 {
-    mathCategoryAddition,
-    mathCategorySubtraction,
-    mathCategoryMultiplication,
-    mathCategoryDivision
+    MathCategoryAddition,
+    MathCategorySubtraction,
+    MathCategoryMultiplication,
+    MathCategoryDivision,
+    MathCategoryTest,
+    MathCategoryHistory,
+    MathCategorySubscription,
+    MathCategorySetting,
+    MathCategoryHelp,
+    MathCategoryDate
 };
 #endif /* ArithmeticConstant_h */

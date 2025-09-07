@@ -8,6 +8,9 @@
 #import <UIKit/UIKit.h>
 #import "ArithmeticConstant.h"
 #import "UIColor+UIColor_Appearance.h"
+#import "UIFont+UIFont_Appearance.h"
+@import Masonry;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MathCateGoryViewCell : UICollectionViewCell
@@ -21,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *tutorialLabel;
 @property (nonatomic, strong) UIButton *tutorialButton;
 @property (nonatomic, strong) UIImageView *arrowImageView;
+
 @end
 
 NS_ASSUME_NONNULL_END
