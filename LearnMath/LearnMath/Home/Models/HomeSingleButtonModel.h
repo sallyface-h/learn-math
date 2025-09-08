@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) MathCategory category;
 
 -(instancetype)initWithTitle:(NSString *)title andImage:(NSString *)imgName andColor:(UIColor *)color andCategory:(MathCategory)category;
-+(NSArray<HomeSingleButtonModel *> *)singleButtonModel;
++(NSArray<HomeSingleButtonModel *> *)singleButtonModelMake;
 
 @end
 

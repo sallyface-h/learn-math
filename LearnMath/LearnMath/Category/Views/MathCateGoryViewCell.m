@@ -47,7 +47,8 @@
     _titleLabel.textColor = [UIColor colorForSet:ColorSetSkillTitle];
     [self.scaleButton addSubview:_titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.leading.mas_equalTo(LearnMathScale(12.0));
+        make.top.mas_equalTo(LearnMathScale(12.0));
+        make.leading.mas_equalTo(LearnMathScale(20.0));
         make.trailing.equalTo(self.arrowImageView.mas_leading).offset(-LearnMathScale(5.0));
         make.height.mas_equalTo(LearnMathScale(20.0));
     }];
@@ -107,8 +108,9 @@
     _progressLabel.textColor = [UIColor colorForSet:ColorSetSkillTitle];
     _progressLabel.text = @"0%";
     [self.progressStackView addArrangedSubview:_progressLabel];
-    
+
     self.contentView.layer.cornerRadius = LearnMathScale(12.0);
 }
+
 
 @end

@@ -38,9 +38,10 @@
     
     UIImageView *home_pro = [[UIImageView alloc] init];
     home_pro.image = [UIImage imageNamed:@"home_pro"];
+    home_pro.layer.masksToBounds = YES;
     
     for (NSInteger i = 0;i <imgName.count;i++) {
-        UIButton *btn = [[UIButton alloc] init];
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.tag = i;
         btn.backgroundColor = color;
         btn.layer.cornerRadius = LearnMathScale(16.0);

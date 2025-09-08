@@ -13,7 +13,9 @@
 @end
 
 @implementation MathCategoryViewController
+
 static NSString * const reuseIdentifier = @"Cell";
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
@@ -22,8 +24,6 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(SCREEN_WIDTH - LearnMathScale(24.0) * 2, LearnMathScale(72.0));
     layout.minimumLineSpacing = LearnMathScale(18.0);
@@ -62,9 +62,20 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-        MathCateGoryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-        cell.titleLabel.text = self.model.skill[indexPath.row];
-        return cell;
+    
+    MathCateGoryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.titleLabel.text = self.model.skill[indexPath.row];
+    [cell.scaleButton addTarget:self action:@selector(jumpToTrainingSettingView:) forControlEvents:UIControlEventTouchUpInside];
+    return cell;
+}
+
+#pragma mark - 跳转方法
+-(void)jumpToTrainingSettingView:(MathCategory)category
+{
+    TrainingSettingViewController *vc = [[TrainingSettingViewController alloc] init];
+    vc.category = category;
+    vc.navColor = self.view.backgroundColor;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

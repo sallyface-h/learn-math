@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(instancetype)initWithImage:(NSArray <NSString *> *)imgName andColor:(UIColor *)color andCategory:(NSArray<NSNumber *> *)category;
 -(MathCategory)categoryAtIndex:(NSInteger)index;
-+(NSArray<HomeMultiButtonModel *> *)multiButtonModel;
++(NSArray<HomeMultiButtonModel *> *)multiButtonModelMake;
 @end
 
 NS_ASSUME_NONNULL_END

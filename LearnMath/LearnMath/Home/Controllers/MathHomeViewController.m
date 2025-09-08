@@ -8,7 +8,6 @@
 #import "MathHomeViewController.h"
 
 @interface MathHomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,MathHomeViewSingleButtonCellDelegate,MathHomeViewMultiButtonCellDelegate>
-@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray<HomeSingleButtonModel *> *singleButtonModels;
 @property (nonatomic, strong) NSArray<HomeMultiButtonModel *> *multiButtonModels;
 
@@ -38,7 +37,7 @@ static NSString * const multiCellId  = @"MultiCell";
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(SCREEN_WIDTH - LearnMathScale(24.0) * 2, LearnMathScale(68.0));
     layout.minimumLineSpacing = LearnMathScale(18.0);
-    layout.sectionInset = UIEdgeInsetsMake(LearnMathScale(30.0), LearnMathScale(24.0), 0, LearnMathScale(24.0));
+    layout.sectionInset = UIEdgeInsetsMake(LearnMathScale(30.0), 0.0, 0.0, 0.0);
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     self.collectionView = collectionView;
@@ -58,8 +57,8 @@ static NSString * const multiCellId  = @"MultiCell";
     [self.collectionView registerClass:[MathHomeViewSingleButtonCell class] forCellWithReuseIdentifier:singleCellId];
     [self.collectionView registerClass:[MathHomeViewMultiButtonCell class] forCellWithReuseIdentifier:multiCellId];
     
-    self.singleButtonModels = [HomeSingleButtonModel singleButtonModel];
-    self.multiButtonModels  = [HomeMultiButtonModel multiButtonModel];
+    self.singleButtonModels = [HomeSingleButtonModel singleButtonModelMake];
+    self.multiButtonModels  = [HomeMultiButtonModel multiButtonModelMake];
 }
 
 

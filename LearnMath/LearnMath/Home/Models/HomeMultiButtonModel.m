@@ -22,7 +22,7 @@
     return (MathCategory)[self.category[index] integerValue];
 }
 
-+(NSArray<HomeMultiButtonModel*> *)multiButtonModel{
++(NSArray<HomeMultiButtonModel*> *)multiButtonModelMake{
     return @[
         [[HomeMultiButtonModel alloc] initWithImage:@[@"nil",@"home_history"] andColor:[UIColor colorForSet:ColorSetPink] andCategory:@[@(MathCategoryTest),@(MathCategoryHistory)]],
         [[HomeMultiButtonModel alloc] initWithImage:@[@"home_date",@"home_help",@"home_setting",@"home_subscription"] andColor:[UIColor colorForSet:ColorSetPurple] andCategory:@[@(MathCategoryDate),@(MathCategoryHelp),@(MathCategorySetting),@(MathCategorySubtraction)]]

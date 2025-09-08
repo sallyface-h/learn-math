@@ -12,6 +12,7 @@
 #import "EachMathNavigationBar.h"
 #import "UIColor+UIColor_Appearance.h"
 #import "MathCategoryModels.h"
+#import "TrainingSettingViewController.h"
 @import Masonry;
 NS_ASSUME_NONNULL_BEGIN
 

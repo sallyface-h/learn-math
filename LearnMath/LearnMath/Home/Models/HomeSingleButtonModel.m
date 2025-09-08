@@ -19,7 +19,7 @@
     return self;
 }
 
-+ (NSArray<HomeSingleButtonModel *> *)singleButtonModel
++ (NSArray<HomeSingleButtonModel *> *)singleButtonModelMake
 {
     return @[
         [[HomeSingleButtonModel alloc] initWithTitle:@"Addition" andImage:@"home_add" andColor:[UIColor colorForSet:ColorSetDeepOrange] andCategory:MathCategoryAddition],

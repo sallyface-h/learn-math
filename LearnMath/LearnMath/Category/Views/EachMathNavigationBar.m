@@ -16,7 +16,7 @@
         NSFontAttributeName: [UIFont balooFontOfSize:30.0 weight:UIFontWeightBold],
         NSForegroundColorAttributeName: [UIColor colorForSet:ColorSetWhite]
     };
-    
+    appearance.backgroundEffect = nil;
     appearance.shadowColor = [UIColor clearColor];
     appearance.backButtonAppearance.normal.backgroundImage = [UIImage imageNamed:@"back"];
     UIColor *bgcolor;
@@ -37,6 +37,8 @@
         case MathCategoryDivision:
             vc.title = @"Division";
             appearance.backgroundColor = [UIColor colorForSet:ColorSetGreen];
+            break;
+        default:
             break;
     }
     bgcolor = appearance.backgroundColor;
