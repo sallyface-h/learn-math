@@ -8,8 +8,9 @@
 #import "MathHomeViewController.h"
 
 @interface MathHomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,MathHomeViewSingleButtonCellDelegate,MathHomeViewMultiButtonCellDelegate>
-@property (nonatomic, strong) NSArray<HomeSingleButtonModel *> *singleButtonModels;
-@property (nonatomic, strong) NSArray<HomeMultiButtonModel *> *multiButtonModels;
+@property (nonatomic, strong) HomeSingleButtonModel *singleButtonModels;
+@property (nonatomic, strong) NSArray <HomeMultiButtonModel *> *multiButtonModels;
+
 
 @end
 
@@ -56,9 +57,67 @@ static NSString * const multiCellId  = @"MultiCell";
     
     [self.collectionView registerClass:[MathHomeViewSingleButtonCell class] forCellWithReuseIdentifier:singleCellId];
     [self.collectionView registerClass:[MathHomeViewMultiButtonCell class] forCellWithReuseIdentifier:multiCellId];
+ 
+    self.singleButtonModels = [HomeSingleButtonModel modelWithSingleButtonTitle:@[
+        @"Addition",
+        @"Subteaction",
+        @"Multiplication",
+        @"Division"
+    ]
+    andImage:@[
+        @"home_add",
+        @"home_sub",
+        @"home_mul",
+        @"home_div"
+    ]
+    andColor:@[
+        [UIColor colorForSet:ColorSetDeepOrange],
+        [UIColor colorForSet:ColorSetOrange],
+        [UIColor colorForSet:ColorSetBlue],
+        [UIColor colorForSet:ColorSetGreen]
+    ]
+    andCategory:@[
+        @(MathCategoryAddition),
+        @(MathCategorySubtraction),
+        @(MathCategoryMultiplication),
+        @(MathCategoryDivision)
+    ]];
     
-    self.singleButtonModels = [HomeSingleButtonModel singleButtonModelMake];
-    self.multiButtonModels  = [HomeMultiButtonModel multiButtonModelMake];
+    HomeMultiButtonModel *firstCell = [HomeMultiButtonModel modelWithMultiButtonImgName:@[
+        @"nil",
+        @"home_history"
+    ]
+    andTitle:@[
+        @"Do a Test!",
+        @"nil"
+    ]
+    andColor:[UIColor colorForSet:ColorSetPink]
+    andCategory:@[
+        @(MathCategoryTest),
+        @(MathCategoryHistory)
+    ]];
+
+    HomeMultiButtonModel *secondCell = [HomeMultiButtonModel modelWithMultiButtonImgName:@[
+        @"home_date",
+        @"home_help",
+        @"home_setting",
+        @"home_subscription"
+    ]
+    andTitle:@[
+        @"nil",
+        @"nil",
+        @"nil",
+        @"nil"
+    ]
+    andColor:[UIColor colorForSet:ColorSetPurple]
+   andCategory:@[
+        @(MathCategoryDate),
+        @(MathCategoryHelp),
+        @(MathCategorySetting),
+        @(MathCategorySubscription)
+    ]];
+    
+    self.multiButtonModels = @[firstCell, secondCell];
 }
 
 
@@ -70,22 +129,20 @@ static NSString * const multiCellId  = @"MultiCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.multiButtonModels.count+self.singleButtonModels.count;
+    return self.singleButtonModels.title.count + self.multiButtonModels.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row < self.singleButtonModels.count) {
+    if (indexPath.row < self.singleButtonModels.title.count) {
         MathHomeViewSingleButtonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SingleCell" forIndexPath:indexPath];
         cell.delegate = self;
-        HomeSingleButtonModel *models = self.singleButtonModels[indexPath.row];
-        [cell configureWithColor:models.color andTitle:models.title andImage:models.imgName];
+        [cell configureWithModel:self.singleButtonModels atIndex:indexPath.row];
         return cell;
     }else {
         MathHomeViewMultiButtonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MultiCell" forIndexPath:indexPath];
         cell.delegate = self;
-        HomeMultiButtonModel *models = self.multiButtonModels[indexPath.row - self.singleButtonModels.count];
-        [cell configureWithColor:models.color andButtonsImgName:models.imgName];
+        [cell configureWithModel:self.multiButtonModels[indexPath.row - self.singleButtonModels.title.count]];
         return cell;
     }
 }
@@ -94,9 +151,8 @@ static NSString * const multiCellId  = @"MultiCell";
 - (void)mathHomeViewSingleButtonCellDidTapButton:(MathHomeViewSingleButtonCell *)cell
 {
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-    if (indexPath.row < self.singleButtonModels.count) {
-        HomeSingleButtonModel *model = self.singleButtonModels[indexPath.row];
-        [self jumpToCollectionViewWithMathCategory:model.category];
+    if (indexPath.row < self.singleButtonModels.title.count) {
+        [self jumpToCollectionViewWithMathCategory:[self.singleButtonModels.category[indexPath.row] integerValue]];
     }
 }
 
@@ -104,16 +160,24 @@ static NSString * const multiCellId  = @"MultiCell";
 - (void)mathHomeViewMultiButtonCell:(MathHomeViewMultiButtonCell *)cell andDidTapButtonAtIndex:(NSInteger)index
 {
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-    if (indexPath.row) {
-        HomeMultiButtonModel *model = self.multiButtonModels[indexPath.row - self.singleButtonModels.count];
+    if (indexPath.row >= self.singleButtonModels.title.count) {
+        HomeMultiButtonModel *model = self.multiButtonModels[indexPath.row - self.singleButtonModels.title.count];
         MathCategory category = [model categoryAtIndex:index];
-        [self jumpToCollectionViewWithMathCategory:category];
+        [self jumpToCollectionViewWithTest:category];
     }
 }
+
 #pragma mark - 跳转方法
--(void)jumpToCollectionViewWithMathCategory:(MathCategory)category
+- (void)jumpToCollectionViewWithMathCategory:(MathCategory)category
 {
     MathCategoryViewController *vc = [[MathCategoryViewController alloc] init];
+    vc.category = category;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)jumpToCollectionViewWithTest:(MathCategory)category
+{
+    TestSettingViewController *vc = [[TestSettingViewController alloc] init];
     vc.category = category;
     [self.navigationController pushViewController:vc animated:YES];
 }

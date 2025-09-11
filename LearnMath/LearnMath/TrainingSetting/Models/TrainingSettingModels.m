@@ -11,14 +11,14 @@
 - (instancetype)initWithCalculateNum:(NSArray<NSString *> *)calculateNum andCountDownOfQuestion:(NSArray<NSString *> *)countDownOfQuestion
 {
     if (self == [super init]) {
-        _calculateNum =calculateNum;
+        _calculateNum = calculateNum;
         _countDownOfQuestion = countDownOfQuestion;
     }
     return self;
 }
 
-+ (TrainingSettingModels *)trainingSettingModelMake
++ (instancetype)modelWithCalculateNum:(NSArray<NSString *> *)calculateNum andCountDownOfQuestion:(NSArray<NSString *> *)countDownOfQuestion
 {
-    return [[TrainingSettingModels alloc] initWithCalculateNum:@[@"<10",@"<100"] andCountDownOfQuestion:@[@"No",@"10 Sec",@"20 Sec",@"30 Sec"]];
+    return [[self alloc] initWithCalculateNum:calculateNum andCountDownOfQuestion:countDownOfQuestion];
 }
 @end

@@ -1,19 +1,19 @@
 //
-//  TrainingSettingViewController.m
+//  TestSettingViewController.m
 //  LearnMath
 //
-//  Created by 基 on 2025/9/8.
+//  Created by 基 on 2025/9/11.
 //
 
-#import "TrainingSettingViewController.h"
+#import "TestSettingViewController.h"
 
-@interface TrainingSettingViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-@property (nonatomic, strong)TrainingSettingModels *model;
+@interface TestSettingViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
+@property (nonatomic, strong)TestSettingModels *model;
 @property (nonatomic, strong)NSIndexPath *singleBtnSelectedIndexPath;
 @property (nonatomic, assign)NSInteger multiBtnSelectedIndex;
 @end
 
-@implementation TrainingSettingViewController
+@implementation TestSettingViewController
 
 static NSString * const singleButtonId = @"SingleCell";
 static NSString * const multiButtonId = @"MultiCell";
@@ -22,7 +22,8 @@ static NSString * const footerId = @"footer";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [TrainingSettingNavigationBar configureNavigationViewController:self withMathCategory:self.category];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [TestSettingNavigationBar configureNavigationViewController:self withMathCategory:self.category];
 }
 
 - (void)viewDidLoad {
@@ -44,17 +45,20 @@ static NSString * const footerId = @"footer";
         make.bottom.leading.trailing.equalTo(self.view);
     }];
     
+    UIColor *navColor = [TestSettingNavigationBar configureNavigationViewController:self withMathCategory:self.category];
+    self.view.backgroundColor = navColor;
+    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
-    [self.collectionView registerClass:[TrainingSettingViewSingleButtonCell class] forCellWithReuseIdentifier:singleButtonId];
-    [self.collectionView registerClass:[TrainingSettingViewMultiButtonCell class] forCellWithReuseIdentifier:multiButtonId];
-    [self.collectionView registerClass:[TrainingSettingHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerId];
-    [self.collectionView registerClass:[TrainingSettingFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:footerId];
+    [self.collectionView registerClass:[TestSettingViewSingleButtonCell class] forCellWithReuseIdentifier:singleButtonId];
+    [self.collectionView registerClass:[TestSettingViewMultiButtonCell class] forCellWithReuseIdentifier:multiButtonId];
+    [self.collectionView registerClass:[TestSettingHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerId];
+    [self.collectionView registerClass:[TestSettingFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:footerId];
     
-    self.model = [TrainingSettingModels modelWithCalculateNum:@[@"<10",@"<100"] andCountDownOfQuestion:@[@"No",@"10 Sec",@"20 Sec",@"30 Sec"]];
+    self.model = [TestSettingModels modelWithCalculateNum:@[@"<10",@"<100"] andTestScope:@[@"All you've learn",@"Choose by operations",@"Choose by skills"]];
     
-    self.singleBtnSelectedIndexPath = [NSIndexPath indexPathForItem:0 inSection:1];
+    self.singleBtnSelectedIndexPath = [NSIndexPath indexPathForItem:0 inSection:0];
     self.multiBtnSelectedIndex = 0;
 }
 
@@ -67,31 +71,31 @@ static NSString * const footerId = @"footer";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 1;
+        return self.model.testScope.count;
     } else {
-        return self.model.countDownOfQuestion.count;
+        return 1;
     }
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    
     if (indexPath.section == 0) {
-        TrainingSettingViewMultiButtonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:multiButtonId forIndexPath:indexPath];
+        TestSettingViewSingleButtonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:singleButtonId forIndexPath:indexPath];
+        cell.titleLabel.text = self.model.testScope[indexPath.row];
+        if ([indexPath isEqual:self.singleBtnSelectedIndexPath]) {
+            cell.settingScopeButton.layer.borderColor = [UIColor colorForSet:ColorSetPurple].CGColor;
+        } else {
+            cell.settingScopeButton.layer.borderColor = [UIColor colorForSet:ColorSetSkillBorder].CGColor;
+        }
+        [cell.settingScopeButton addTarget:self action:@selector(didSingleButton:) forControlEvents:UIControlEventTouchUpInside];
+        return cell;
+    } else {
+        TestSettingViewMultiButtonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:multiButtonId forIndexPath:indexPath];
         [cell configureWithCalculateNums:self.model.calculateNum andSelectedIndex:self.multiBtnSelectedIndex];
         for (UIButton *btn in cell.settingNumButtonArr) {
             [btn addTarget:self action:@selector(didMultiButton:) forControlEvents:UIControlEventTouchUpInside];
         }
-        return cell;
-    } else {
-        TrainingSettingViewSingleButtonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:singleButtonId forIndexPath:indexPath];
-        cell.titleLabel.text = self.model.countDownOfQuestion[indexPath.row];
-        if ([indexPath isEqual:self.singleBtnSelectedIndexPath]) {
-            cell.settingTimeButton.layer.borderColor = [UIColor colorForSet:ColorSetPurple].CGColor;
-        } else {
-            cell.settingTimeButton.layer.borderColor = [UIColor colorForSet:ColorSetSkillBorder].CGColor;
-        }
-        [cell.settingTimeButton addTarget:self action:@selector(didSingleButton:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
 }
@@ -99,15 +103,15 @@ static NSString * const footerId = @"footer";
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        TrainingSettingHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerId forIndexPath:indexPath];
+        TestSettingHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerId forIndexPath:indexPath];
         if (indexPath.section == 0) {
-            [header configureWithTitle:@"Calculated number:"];
+            [header configureWithTitle:@"Select test scope"];
         } else {
-            [header configureWithTitle:@"Countdown for each question"];
+            [header configureWithTitle:@"Calculated number:"];
         }
         return header;
     } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
-        TrainingSettingFooterView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footerId forIndexPath:indexPath];
+        TestSettingFooterView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footerId forIndexPath:indexPath];
         if (indexPath.section == 1) {
             [footer configureWithButtonTitle:@"Start!"];
             return footer;
@@ -134,15 +138,15 @@ static NSString * const footerId = @"footer";
 #pragma  mark - 按钮点击方法
 - (void)didSingleButton:(UIButton *)sender
 {
-    NSIndexPath *newIndexPath = [self.collectionView indexPathForCell:(TrainingSettingViewSingleButtonCell *)sender.superview.superview];
+    NSIndexPath *newIndexPath = [self.collectionView indexPathForCell:(TestSettingViewSingleButtonCell *)sender.superview.superview];
     if ([newIndexPath isEqual:self.singleBtnSelectedIndexPath]) {
         return;
     }
     NSIndexPath *oldIndexPath = self.singleBtnSelectedIndexPath;
     self.singleBtnSelectedIndexPath = newIndexPath;
     
-    TrainingSettingViewSingleButtonCell *oldCell = [self.collectionView cellForItemAtIndexPath:oldIndexPath];
-    TrainingSettingViewSingleButtonCell *newCell = [self.collectionView cellForItemAtIndexPath:newIndexPath];
+    TestSettingViewSingleButtonCell *oldCell = [self.collectionView cellForItemAtIndexPath:oldIndexPath];
+    TestSettingViewSingleButtonCell *newCell = [self.collectionView cellForItemAtIndexPath:newIndexPath];
     
     void(^animateBorderColor)(UIButton *,UIColor *) = ^(UIButton *btn,UIColor *toColor){
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
@@ -153,13 +157,13 @@ static NSString * const footerId = @"footer";
         [btn.layer addAnimation:animation forKey:@"borderColor"];
     };
     
-    animateBorderColor(oldCell.settingTimeButton,[UIColor colorForSet:ColorSetSkillBorder]);
-    animateBorderColor(newCell.settingTimeButton,[UIColor colorForSet:ColorSetPurple]);
+    animateBorderColor(oldCell.settingScopeButton,[UIColor colorForSet:ColorSetSkillBorder]);
+    animateBorderColor(newCell.settingScopeButton,[UIColor colorForSet:ColorSetPurple]);
 }
 
 - (void)didMultiButton:(UIButton *)sender
 {
-    TrainingSettingViewMultiButtonCell *cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    TestSettingViewMultiButtonCell *cell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     NSInteger newIndex = sender.tag;
     if (newIndex == self.multiBtnSelectedIndex) {
         return;

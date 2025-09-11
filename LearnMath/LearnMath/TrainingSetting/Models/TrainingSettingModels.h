@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,strong) NSArray <NSString *> *calculateNum;
 @property (nonatomic, strong) NSArray <NSString *> *countDownOfQuestion;
 
--(instancetype)initWithCalculateNum:(NSArray <NSString *> *)calculateNum andCountDownOfQuestion:(NSArray <NSString *> *)countDownOfQuestion;
-+(TrainingSettingModels *)trainingSettingModelMake;
+- (instancetype)initWithCalculateNum:(NSArray <NSString *> *)calculateNum andCountDownOfQuestion:(NSArray <NSString *> *)countDownOfQuestion;
++ (instancetype)modelWithCalculateNum:(NSArray<NSString *> *)calculateNum andCountDownOfQuestion:(NSArray<NSString *> *)countDownOfQuestion;
 @end
 
 NS_ASSUME_NONNULL_END

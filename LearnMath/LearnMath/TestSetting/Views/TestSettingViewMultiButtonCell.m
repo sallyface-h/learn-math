@@ -1,13 +1,13 @@
 //
-//  TrainingSettingViewMultiButtonCell.m
+//  TestSettingViewMultiButtonCell.m
 //  LearnMath
 //
-//  Created by 基 on 2025/9/8.
+//  Created by 基 on 2025/9/11.
 //
 
-#import "TrainingSettingViewMultiButtonCell.h"
+#import "TestSettingViewMultiButtonCell.h"
 
-@implementation TrainingSettingViewMultiButtonCell
+@implementation TestSettingViewMultiButtonCell
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self == [super initWithFrame:frame]) {

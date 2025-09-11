@@ -50,11 +50,12 @@
             }];
 }
 
--(void)configureWithColor:(UIColor *)color andTitle:(NSString *)title andImage:(NSString *)imageName
+- (void)configureWithModel:(HomeSingleButtonModel *)model atIndex:(NSInteger)index
 {
-    self.categoryButton.backgroundColor = color;
-    self.categoryTitle.text = title;
-    self.categoryImage.image = [UIImage imageNamed:imageName];
+    self.model = model;
+    self.categoryButton.backgroundColor = model.color[index];
+    self.categoryTitle.text = model.title[index];
+    self.categoryImage.image = [UIImage imageNamed:model.imgName[index]];
 }
 
 -(void)buttonTapped:(UIButton *)sender

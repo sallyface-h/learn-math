@@ -29,8 +29,9 @@
     }];
     
 }
-- (void)configureWithColor:(UIColor *)color andButtonsImgName:(NSArray<NSString *> *)imgName;
+-(void)configureWithModel:(HomeMultiButtonModel *)model
 {
+    self.model = model;
     for (UIView *sub in self.StackView.arrangedSubviews) {
             [self.StackView removeArrangedSubview:sub];
             [sub removeFromSuperview];
@@ -40,10 +41,10 @@
     home_pro.image = [UIImage imageNamed:@"home_pro"];
     home_pro.layer.masksToBounds = YES;
     
-    for (NSInteger i = 0;i <imgName.count;i++) {
+    for (NSInteger i = 0;i <model.imgName.count;i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.tag = i;
-        btn.backgroundColor = color;
+        btn.backgroundColor = model.color;
         btn.layer.cornerRadius = LearnMathScale(16.0);
         btn.layer.shadowRadius =  0.0;
         btn.layer.shadowOpacity = 1.0;
@@ -51,34 +52,32 @@
         btn.layer.shadowOffset = CGSizeMake(0.0, LearnMathScale(8.0));
         btn.layer.shadowColor = [UIColor colorForSet:ColorSetSkillShadow].CGColor;
         [self.StackView addArrangedSubview:btn];
+        [btn addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
-        UILabel *testLabel = [[UILabel alloc] init];
-        testLabel.font = [UIFont balooFontOfSize:24.0 weight:UIFontWeightBold];
-        testLabel.textColor = [UIColor colorForSet:ColorSetWhite];
-        testLabel.text = @"Do a Test!";
-        if ([imgName[i] isEqualToString: @"nil"]) {
+        UILabel *textLabel = [[UILabel alloc] init];
+        textLabel.font = [UIFont balooFontOfSize:24.0 weight:UIFontWeightBold];
+        textLabel.textColor = [UIColor colorForSet:ColorSetWhite];
+        textLabel.text = model.title[i];
+        if ([model.imgName[i] isEqualToString: @"nil"]) {
             [self.StackView addArrangedSubview:btn];
             self.StackView.distribution = UIStackViewDistributionFill;
             [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo(LearnMathScale(68.0));
             }];
-            
-            [btn addSubview:testLabel];
-            [testLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            [btn addSubview:textLabel];
+            [textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerY.equalTo(btn);
                 make.leading.equalTo(btn).offset(LearnMathScale(24.0));
             }];
-            
         } else {
-            [btn setImage:[UIImage imageNamed:imgName[i]] forState:UIControlStateNormal];
-            
+            [btn setImage:[UIImage imageNamed:model.imgName[i]] forState:UIControlStateNormal];
             [self.StackView addArrangedSubview:btn];
             [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.width.mas_equalTo(LearnMathScale(72.0));
                 make.height.mas_equalTo(LearnMathScale(68.0));
             }];
         }
-        if (i == imgName.count-1 && imgName.count == 4) {
+        if (i == model.imgName.count-1 && model.imgName.count == 4) {
             [btn addSubview:home_pro];
             [home_pro mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(LearnMathScale(42.0), LearnMathScale(26.0)));

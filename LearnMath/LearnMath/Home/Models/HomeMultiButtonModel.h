@@ -12,13 +12,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeMultiButtonModel : NSObject
-@property (nonatomic, copy)NSArray *imgName;
+@property (nonatomic, copy) NSArray <NSString *> *imgName;
+@property (nonatomic, copy) NSArray <NSString *> *title;
 @property (nonatomic, strong) UIColor *color;
-@property (nonatomic, copy) NSArray<NSNumber *> *category;
+@property (nonatomic, copy) NSArray <NSNumber *> *category;
 
--(instancetype)initWithImage:(NSArray <NSString *> *)imgName andColor:(UIColor *)color andCategory:(NSArray<NSNumber *> *)category;
--(MathCategory)categoryAtIndex:(NSInteger)index;
-+(NSArray<HomeMultiButtonModel *> *)multiButtonModelMake;
+- (instancetype)initWithImage:(NSArray <NSString *> *)imgName andTitle:(NSArray <NSString *> *)title andColor:(UIColor *)color andCategory:(NSArray <NSNumber *> *)category;
+- (MathCategory)categoryAtIndex:(NSInteger)index;
+
++ (instancetype)modelWithMultiButtonImgName:(NSArray <NSString *> *)imgName andTitle:(NSArray <NSString *> *)title andColor:(UIColor *)color andCategory:(NSArray <NSNumber *> *)category;
 @end
 
 NS_ASSUME_NONNULL_END

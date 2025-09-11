@@ -16,6 +16,7 @@
 #import "MathHomeHeaderView.h"
 #import "HomeSingleButtonModel.h"
 #import "HomeMultiButtonModel.h"
+#import "TestSettingViewController.h"
 @import Masonry;
 
 NS_ASSUME_NONNULL_BEGIN

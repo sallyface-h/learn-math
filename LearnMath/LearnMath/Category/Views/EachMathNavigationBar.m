@@ -38,6 +38,10 @@
             vc.title = @"Division";
             appearance.backgroundColor = [UIColor colorForSet:ColorSetGreen];
             break;
+        case MathCategoryTest:
+        case MathCategoryHistory:
+            appearance.backgroundColor = [UIColor colorForSet:ColorSetPink];
+            break;
         default:
             break;
     }

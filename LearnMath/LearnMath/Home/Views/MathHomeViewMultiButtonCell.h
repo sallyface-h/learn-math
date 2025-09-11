@@ -9,6 +9,8 @@
 #import "ArithmeticConstant.h"
 #import "UIColor+UIColor_Appearance.h"
 #import "UIFont+UIFont_Appearance.h"
+#import "HomeMultiButtonModel.h"
+
 @import Masonry;
 @class MathHomeViewMultiButtonCell;
 NS_ASSUME_NONNULL_BEGIN
@@ -21,9 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MathHomeViewMultiButtonCell : UICollectionViewCell
 @property (nonatomic, strong) UIStackView *StackView;
+@property (nonatomic, strong) HomeMultiButtonModel *model;
 @property (nonatomic, weak)id<MathHomeViewMultiButtonCellDelegate>delegate;
 
--(void)configureWithColor:(UIColor *)color andButtonsImgName:(NSArray<NSString *> *)imgName;
+-(void)configureWithModel:(HomeMultiButtonModel *)model;
 
 @end
 

@@ -12,6 +12,8 @@
 #import "TrainingSettingModels.h"
 #import "TrainingSettingViewMultiButtonCell.h"
 #import "TrainingSettingViewSingleButtonCell.h"
+#import "TrainingSettingHeaderView.h"
+#import "TrainingSettingFooterView.h"
 
 @import Masonry;
 NS_ASSUME_NONNULL_BEGIN
@@ -20,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) MathCategory category;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic ,strong) UIColor *navColor;
+
 @end
 
 NS_ASSUME_NONNULL_END

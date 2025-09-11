@@ -1,8 +1,8 @@
 //
-//  TrainingSettingHeaderView.h
+//  TestSettingHeaderView.h
 //  LearnMath
 //
-//  Created by 基 on 2025/9/8.
+//  Created by 基 on 2025/9/11.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,7 +13,7 @@
 @import Masonry;
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TrainingSettingHeaderView : UICollectionReusableView
+@interface TestSettingHeaderView : UICollectionReusableView
 @property (nonatomic, strong)UILabel *titleLabel;
 
 - (void)configureWithTitle:(NSString *)title;

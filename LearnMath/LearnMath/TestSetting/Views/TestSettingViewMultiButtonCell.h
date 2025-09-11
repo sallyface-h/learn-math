@@ -1,8 +1,8 @@
 //
-//  TrainingSettingViewMultiButtonCell.h
+//  TestSettingViewMultiButtonCell.h
 //  LearnMath
 //
-//  Created by 基 on 2025/9/8.
+//  Created by 基 on 2025/9/11.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,7 +13,7 @@
 @import Masonry;
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TrainingSettingViewMultiButtonCell : UICollectionViewCell
+@interface TestSettingViewMultiButtonCell : UICollectionViewCell
 @property (nonatomic, strong)NSMutableArray *settingNumButtonArr;
 @property (nonatomic ,strong)UIStackView *settingStackView;
 

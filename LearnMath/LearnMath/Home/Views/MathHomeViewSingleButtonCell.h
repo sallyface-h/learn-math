@@ -9,6 +9,7 @@
 #import "ArithmeticConstant.h"
 #import "UIColor+UIColor_Appearance.h"
 #import "UIFont+UIFont_Appearance.h"
+#import "HomeSingleButtonModel.h"
 @import Masonry;
 @class MathHomeViewSingleButtonCell;
 NS_ASSUME_NONNULL_BEGIN
@@ -23,9 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *categoryTitle;
 @property (nonatomic, strong) UIImageView *categoryImage;
 @property (nonatomic, strong) UIButton *categoryButton;
+@property (nonatomic, strong) HomeSingleButtonModel *model;
 @property (nonatomic, weak) id<MathHomeViewSingleButtonCellDelegate> delegate;
 
--(void)configureWithColor:(UIColor *)color andTitle:(NSString *)title andImage:(NSString *)imageName;
+- (void)configureWithModel:(HomeSingleButtonModel *)model atIndex:(NSInteger)index;
 
 @end
 

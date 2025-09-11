@@ -46,7 +46,34 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self.categoryCollectionView registerClass:[MathCateGoryViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    self.model = [MathCategoryModels skillsModelWithCategory:self.category];
+    NSDictionary *dict =@{
+        @(MathCategoryAddition) : @[
+            @"Column vertical form(add)",
+            @"Make-Ten",@"Decomposition and compensation",
+            @"Moving the numbers",
+            @"Finding the base number"
+        ],
+        @(MathCategorySubtraction) : @[
+                @"Column vertical Form(sub)",
+                @"Break-Ten",
+                @"Moving the numbers",
+                @"Making up interal"
+            ],
+        @(MathCategoryMultiplication) : @[
+            @"Multiplication Table",
+            @"Column vertical form(mul)",
+            @"Everal tens and one",
+            @"Decomposing terms",
+            @"Plus 5 or 25"
+        ],
+        @(MathCategoryDivision) : @[
+            @"Division Table",
+            @"Column vertical Form(sub)",
+            @"Divded by 5 or 25",
+            @"Decomposing terms"
+        ]
+    };
+    self.model = [MathCategoryModels modelWithCategory:self.category andSkillDict:dict];
 
 }
 

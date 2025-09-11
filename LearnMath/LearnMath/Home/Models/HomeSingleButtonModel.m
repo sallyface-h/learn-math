@@ -8,7 +8,7 @@
 #import "HomeSingleButtonModel.h"
 
 @implementation HomeSingleButtonModel
--(instancetype)initWithTitle:(NSString *)title andImage:(NSString *)imgName andColor:(UIColor *)color andCategory:(MathCategory)category
+- (instancetype)initWithTitle:(NSArray <NSString *> *)title andImage:(NSArray <NSString *> *)imgName andColor:(NSArray <UIColor *> *)color andCategory:(NSArray <NSNumber *> *)category
 {
     if (self == [super init]) {
         _title = title;
@@ -19,13 +19,9 @@
     return self;
 }
 
-+ (NSArray<HomeSingleButtonModel *> *)singleButtonModelMake
++ (instancetype)modelWithSingleButtonTitle:(NSArray <NSString *> *)title andImage:(NSArray <NSString *> *)imgName andColor:(NSArray <UIColor *> *)color andCategory:(NSArray <NSNumber *> *)category
 {
-    return @[
-        [[HomeSingleButtonModel alloc] initWithTitle:@"Addition" andImage:@"home_add" andColor:[UIColor colorForSet:ColorSetDeepOrange] andCategory:MathCategoryAddition],
-        [[HomeSingleButtonModel alloc] initWithTitle:@"Subteaction" andImage:@"home_sub" andColor:[UIColor colorForSet:ColorSetOrange] andCategory:MathCategorySubtraction],
-        [[HomeSingleButtonModel alloc] initWithTitle:@"Multiplication" andImage:@"home_mul" andColor:[UIColor colorForSet:ColorSetBlue] andCategory:MathCategoryMultiplication],
-        [[HomeSingleButtonModel alloc] initWithTitle:@"Division" andImage:@"home_div" andColor:[UIColor colorForSet:ColorSetGreen] andCategory:MathCategoryDivision]
-    ];
+    return [[self alloc]initWithTitle:title andImage:imgName andColor:color andCategory:category];
 }
+
 @end

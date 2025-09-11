@@ -12,13 +12,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeSingleButtonModel : NSObject
-@property (nonatomic, copy) NSString *imgName;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, strong) UIColor *color;
-@property (nonatomic, assign) MathCategory category;
+@property (nonatomic, copy) NSArray <NSString *> *imgName;
+@property (nonatomic, copy) NSArray <NSString *> *title;
+@property (nonatomic, strong) NSArray <UIColor *> *color;
+@property (nonatomic, copy) NSArray<NSNumber *> *category;
 
--(instancetype)initWithTitle:(NSString *)title andImage:(NSString *)imgName andColor:(UIColor *)color andCategory:(MathCategory)category;
-+(NSArray<HomeSingleButtonModel *> *)singleButtonModelMake;
+- (instancetype)initWithTitle:(NSArray <NSString *> *)title andImage:(NSArray <NSString *> *)imgName andColor:(NSArray <UIColor *> *)color andCategory:(NSArray <NSNumber *> *)category;
++ (instancetype)modelWithSingleButtonTitle:(NSArray <NSString *> *)title andImage:(NSArray <NSString *> *)imgName andColor:(NSArray <UIColor *> *)color andCategory:(NSArray <NSNumber *> *)category;
+
 
 @end
 

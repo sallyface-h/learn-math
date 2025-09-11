@@ -1,13 +1,13 @@
 //
-//  TrainingSettingHeaderView.m
+//  TestSettingHeaderView.m
 //  LearnMath
 //
-//  Created by 基 on 2025/9/8.
+//  Created by 基 on 2025/9/11.
 //
 
-#import "TrainingSettingHeaderView.h"
+#import "TestSettingHeaderView.h"
 
-@implementation TrainingSettingHeaderView
+@implementation TestSettingHeaderView
 {
     UIView *_contentView;
 }
@@ -43,5 +43,4 @@
         make.top.leading.equalTo(_contentView);
     }];
 }
-
 @end
