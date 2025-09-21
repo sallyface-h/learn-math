@@ -8,24 +8,24 @@
 #import "HomeMultiButtonModel.h"
 
 @implementation HomeMultiButtonModel
-- (instancetype)initWithImage:(NSArray <NSString *> *)imgName andTitle:(NSArray <NSString *> *)title andColor:(UIColor *)color andCategory:(NSArray <NSNumber *> *)category
+- (instancetype)initWithImage:(NSArray <NSString *> *)imgName andTitle:(NSArray <NSString *> *)title andColor:(UIColor *)color andCategoryID:(NSArray <NSString *> *)categoryID
 {
     if (self == [super init]) {
         _imgName = imgName;
         _title = title;
         _color = color;
-        _category =category;
+        _categoryID =categoryID;
     }
     return self;
 }
 
 - (MathCategory)categoryAtIndex:(NSInteger)index {
-    return (MathCategory)[self.category[index] integerValue];
+    return (MathCategory)[self.categoryID[index] integerValue];
 }
 
-+ (instancetype)modelWithMultiButtonImgName:(NSArray <NSString *> *)imgName andTitle:(NSArray <NSString *> *)title andColor:(UIColor *)color andCategory:(NSArray <NSNumber *> *)category
++ (instancetype)modelWithMultiButtonImgName:(NSArray <NSString *> *)imgName andTitle:(NSArray <NSString *> *)title andColor:(UIColor *)color andCategoryID:(NSArray <NSString *> *)categoryID
 {
-    return [[self alloc] initWithImage:imgName andTitle:title andColor:color andCategory:category];
+    return [[self alloc] initWithImage:imgName andTitle:title andColor:color andCategoryID:categoryID];
 }
 
 @end

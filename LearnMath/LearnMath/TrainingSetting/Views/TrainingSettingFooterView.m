@@ -20,11 +20,6 @@
     return self;
 }
 
-- (void)configureWithButtonTitle:(NSString *)title
-{
-    [self.button setTitle:title forState:UIControlStateNormal];
-}
-
 -(void)setUpSubviews
 {
     _contentView = [[UIView alloc] init];
@@ -35,7 +30,6 @@
     
     _button = [UIButton buttonWithType:UIButtonTypeCustom];
     _button.backgroundColor = [UIColor colorForSet:ColorSetPurple];
-    [_button setTitle:@"Start!" forState:UIControlStateNormal];
     [_button setTitleColor:[UIColor colorForSet:ColorSetWhite] forState:UIControlStateNormal];
     _button.titleLabel.font = [UIFont balooFontOfSize:20.0 weight:UIFontWeightBold];
     _button.layer.cornerRadius = LearnMathScale(10.0);
@@ -49,7 +43,7 @@
     [_contentView addSubview:self.button];
     [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(LearnMathScale(46.0));
-        make.centerX.equalTo(_contentView);
+        make.top.equalTo(_contentView);
         make.leading.equalTo(_contentView).offset(LearnMathScale(63.5));
         make.trailing.equalTo(_contentView).offset(-LearnMathScale(63.5));
     }];

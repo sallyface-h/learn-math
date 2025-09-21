@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TrainingSettingViewSingleButtonCell : UICollectionViewCell
 @property (nonatomic, strong)UIButton *settingTimeButton;
 @property (nonatomic ,strong)UILabel *titleLabel;
-- (void)updateSelectedState:(BOOL)isSelected animated:(BOOL)animated;
 @end
 
 NS_ASSUME_NONNULL_END

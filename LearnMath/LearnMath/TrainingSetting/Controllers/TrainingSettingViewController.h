@@ -19,7 +19,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TrainingSettingViewController : BaseViewController
-@property (nonatomic, assign) MathCategory category;
+@property (nonatomic, strong) NSString *categoryID;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic ,strong) UIColor *navColor;
 

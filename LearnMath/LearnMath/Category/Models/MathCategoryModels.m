@@ -11,18 +11,14 @@
 - (instancetype)initWithSkill:(NSArray<NSString *> *)skill
 {
     if (self == [super init]) {
-        _skill = skill ?: @[];
+        _skill = skill;
     }
     return self;
 }
 
-+ (instancetype)modelWithCategory:(MathCategory)category andSkillDict:(NSDictionary <NSNumber * , NSArray <NSString *> *> *)skillDict
++ (instancetype)modelWithSkill:(NSArray<NSString *> *)skill
 {
-    NSArray<NSString *> *skills = skillDict[@(category)];
-        if (!skills) {
-            skills = @[];
-        }
-    return [[self alloc] initWithSkill:skills];
+    return [[self alloc] initWithSkill:skill];
 }
 
 @end

@@ -56,6 +56,7 @@
     self.categoryButton.backgroundColor = model.color[index];
     self.categoryTitle.text = model.title[index];
     self.categoryImage.image = [UIImage imageNamed:model.imgName[index]];
+    self.categoryID = model.categoryID[index];
 }
 
 -(void)buttonTapped:(UIButton *)sender

@@ -22,7 +22,7 @@ static NSString * const footerId = @"footer";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [TrainingSettingNavigationBar configureNavigationViewController:self withMathCategory:self.category];
+    [TrainingSettingNavigationBar configureNavigationViewController:self withMathCategoryID:self.categoryID];
 }
 
 - (void)viewDidLoad {
@@ -109,7 +109,7 @@ static NSString * const footerId = @"footer";
     } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
         TrainingSettingFooterView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footerId forIndexPath:indexPath];
         if (indexPath.section == 1) {
-            [footer configureWithButtonTitle:@"Start!"];
+            [footer.button setTitle:@"Start!" forState:UIControlStateNormal];
             return footer;
         }
     }

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EachMathNavigationBar : UINavigationBar
 @property (nonatomic, assign) CGFloat additionalHeight;
-+(UIColor *)configureNavigationViewController:(UIViewController *) vc withMathCategory:(MathCategory)category;
++ (UIColor *)configureNavigationViewController:(UIViewController *)vc withMathCategoryID:(NSString *)categoryID;
 
 @end
 

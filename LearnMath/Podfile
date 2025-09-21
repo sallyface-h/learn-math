@@ -8,6 +8,7 @@ target 'LearnMath' do
     # Pods for LearnMath
     pod 'Masonry'
     pod 'LookinServer', :configurations => ['Debug']
+    pod 'FMDB'
 end
 
 def fix_pod_deployment_target(installer)

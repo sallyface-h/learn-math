@@ -17,11 +17,14 @@
 #import "HomeSingleButtonModel.h"
 #import "HomeMultiButtonModel.h"
 #import "TestSettingViewController.h"
+#import "HelpViewController.h"
+#import "HomeButtonViewModel.h"
 @import Masonry;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MathHomeViewController : BaseViewController
+
 @property (nonatomic, strong) UICollectionView *collectionView;
 @end
 

@@ -13,11 +13,12 @@
 #import "UIColor+UIColor_Appearance.h"
 #import "MathCategoryModels.h"
 #import "TrainingSettingViewController.h"
+#import "MathCategoryViewModel.h"
 @import Masonry;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MathCategoryViewController : BaseViewController
-@property (nonatomic, assign) MathCategory category;
+@property (nonatomic, assign) NSString *categoryID;
 @property (nonatomic, strong) UICollectionView *categoryCollectionView;
 
 @end

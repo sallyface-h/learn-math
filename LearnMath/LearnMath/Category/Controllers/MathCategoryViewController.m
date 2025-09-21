@@ -8,8 +8,8 @@
 #import "MathCategoryViewController.h"
 
 @interface MathCategoryViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
-@property (nonatomic,strong)MathCategoryModels *model;
-
+@property (nonatomic, strong)MathCategoryModels *model;
+@property (nonatomic, strong)MathCategoryViewModel *viewModel;
 @end
 
 @implementation MathCategoryViewController
@@ -19,11 +19,16 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [EachMathNavigationBar configureNavigationViewController:self withMathCategory:self.category];
+    [EachMathNavigationBar configureNavigationViewController:self withMathCategoryID:self.categoryID];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.viewModel = [[MathCategoryViewModel alloc] init];
+    [self.viewModel loadDate:self.categoryID];
+    [self.categoryCollectionView reloadData];
+    self.model = self.viewModel.model;
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(SCREEN_WIDTH - LearnMathScale(24.0) * 2, LearnMathScale(72.0));
     layout.minimumLineSpacing = LearnMathScale(18.0);
@@ -41,40 +46,15 @@ static NSString * const reuseIdentifier = @"Cell";
     }];
     self.categoryCollectionView.delegate = self;
     self.categoryCollectionView.dataSource = self;
-    UIColor *navColor = [EachMathNavigationBar configureNavigationViewController:self withMathCategory:self.category];
+    
+    [self.categoryCollectionView reloadData];
+    
+    UIColor *navColor = [EachMathNavigationBar configureNavigationViewController:self withMathCategoryID:self.categoryID];
     self.view.backgroundColor = navColor;
     
     [self.categoryCollectionView registerClass:[MathCateGoryViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    NSDictionary *dict =@{
-        @(MathCategoryAddition) : @[
-            @"Column vertical form(add)",
-            @"Make-Ten",@"Decomposition and compensation",
-            @"Moving the numbers",
-            @"Finding the base number"
-        ],
-        @(MathCategorySubtraction) : @[
-                @"Column vertical Form(sub)",
-                @"Break-Ten",
-                @"Moving the numbers",
-                @"Making up interal"
-            ],
-        @(MathCategoryMultiplication) : @[
-            @"Multiplication Table",
-            @"Column vertical form(mul)",
-            @"Everal tens and one",
-            @"Decomposing terms",
-            @"Plus 5 or 25"
-        ],
-        @(MathCategoryDivision) : @[
-            @"Division Table",
-            @"Column vertical Form(sub)",
-            @"Divded by 5 or 25",
-            @"Decomposing terms"
-        ]
-    };
-    self.model = [MathCategoryModels modelWithCategory:self.category andSkillDict:dict];
-
+    NSLog(@"categoryID = %@", self.categoryID);
+    NSLog(@"self.model.skill = %@", self.model.skill);
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -97,10 +77,10 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 #pragma mark - 跳转方法
--(void)jumpToTrainingSettingView:(MathCategory)category
+-(void)jumpToTrainingSettingView:(NSString *)categoryID
 {
     TrainingSettingViewController *vc = [[TrainingSettingViewController alloc] init];
-    vc.category = category;
+    vc.categoryID = categoryID;
     vc.navColor = self.view.backgroundColor;
     [self.navigationController pushViewController:vc animated:YES];
 }

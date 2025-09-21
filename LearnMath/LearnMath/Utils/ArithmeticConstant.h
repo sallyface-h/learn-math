@@ -23,4 +23,8 @@ typedef NS_ENUM(NSInteger,MathCategory)
     MathCategoryHelp,
     MathCategoryDate
 };
+typedef NS_ENUM(NSUInteger, ExpandButtonType) {
+    ExpandButtonTypeOperations,
+    ExpandButtonTypeSkills
+};
 #endif /* ArithmeticConstant_h */

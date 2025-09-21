@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIImageView *categoryImage;
 @property (nonatomic, strong) UIButton *categoryButton;
 @property (nonatomic, strong) HomeSingleButtonModel *model;
+@property (nonatomic, strong) NSString *categoryID;
 @property (nonatomic, weak) id<MathHomeViewSingleButtonCellDelegate> delegate;
 
 - (void)configureWithModel:(HomeSingleButtonModel *)model atIndex:(NSInteger)index;

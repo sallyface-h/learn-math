@@ -1,22 +1,30 @@
 PODS:
+  - FMDB (2.7.12):
+    - FMDB/standard (= 2.7.12)
+  - FMDB/Core (2.7.12)
+  - FMDB/standard (2.7.12):
+    - FMDB/Core
   - LookinServer (1.2.8):
     - LookinServer/Core (= 1.2.8)
   - LookinServer/Core (1.2.8)
   - Masonry (1.1.0)
 
 DEPENDENCIES:
+  - FMDB
   - LookinServer
   - Masonry
 
 SPEC REPOS:
   trunk:
+    - FMDB
     - LookinServer
     - Masonry
 
 SPEC CHECKSUMS:
+  FMDB: 728731dd336af3936ce00f91d9d8495f5718a0e6
   LookinServer: 1b2b61c6402ae29fa22182d48f5cd067b4e99e80
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: 3745cc8cd7485cb62f53876751f1ecbb7444df39
+PODFILE CHECKSUM: 22889507bb48a343c219abed2722fb7cb92944bc
 
 COCOAPODS: 1.16.2

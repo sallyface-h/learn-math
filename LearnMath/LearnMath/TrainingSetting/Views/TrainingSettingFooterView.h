@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TrainingSettingFooterView : UICollectionReusableView
 @property (nonatomic, strong) UIButton *button;
-- (void)configureWithButtonTitle:(NSString *)title;
+
 @end
 
 NS_ASSUME_NONNULL_END

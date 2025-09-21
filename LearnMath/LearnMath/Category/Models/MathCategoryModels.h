@@ -10,10 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MathCategoryModels : NSObject
-@property (nonatomic, copy)NSArray *skill;
-
-- (instancetype)initWithSkill:(NSArray <NSString *> *)skill;
-+ (instancetype)modelWithCategory:(MathCategory)categor andSkillDict:(NSDictionary <NSNumber * , NSArray <NSString *> *> *)skillDict;
+@property (nonatomic, copy)NSArray<NSString *> *skill;
+- (instancetype)initWithSkill:(NSArray<NSString *> *)skill;
++ (instancetype)modelWithSkill:(NSArray<NSString *> *)skill;
 @end
 
 NS_ASSUME_NONNULL_END

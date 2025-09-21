@@ -14,15 +14,17 @@
 #import "TestSettingViewSingleButtonCell.h"
 #import "TestSettingHeaderView.h"
 #import "TestSettingFooterView.h"
-
+#import "HomeSingleButtonModel.h"
+#import "MathCategoryModels.h"
+#import "ModesSelectedViewController.h"
 @import Masonry;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TestSettingViewController : BaseViewController
-@property (nonatomic, assign) MathCategory category;
+@property (nonatomic, strong) NSArray <NSString *> *titleName;
+@property (nonatomic, strong) NSString *categoryID;
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic ,strong) UIColor *navColor;
-
+@property (nonatomic, assign) ExpandButtonType buttonType;
 @end
 
 NS_ASSUME_NONNULL_END

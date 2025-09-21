@@ -8,20 +8,20 @@
 #import "HomeSingleButtonModel.h"
 
 @implementation HomeSingleButtonModel
-- (instancetype)initWithTitle:(NSArray <NSString *> *)title andImage:(NSArray <NSString *> *)imgName andColor:(NSArray <UIColor *> *)color andCategory:(NSArray <NSNumber *> *)category
+- (instancetype)initWithTitle:(NSArray <NSString *> *)title andImage:(NSArray <NSString *> *)imgName andColor:(NSArray <UIColor *> *)color andCategoryID:(NSArray <NSString *> *)categoryID
 {
     if (self == [super init]) {
         _title = title;
         _imgName = imgName;
         _color = color;
-        _category = category;
+        _categoryID = categoryID;
     }
     return self;
 }
 
-+ (instancetype)modelWithSingleButtonTitle:(NSArray <NSString *> *)title andImage:(NSArray <NSString *> *)imgName andColor:(NSArray <UIColor *> *)color andCategory:(NSArray <NSNumber *> *)category
++ (instancetype)modelWithSingleButtonTitle:(NSArray <NSString *> *)title andImage:(NSArray <NSString *> *)imgName andColor:(NSArray <UIColor *> *)color andCategoryID:(NSArray <NSString *> *)categoryID
 {
-    return [[self alloc]initWithTitle:title andImage:imgName andColor:color andCategory:category];
+    return [[self alloc]initWithTitle:title andImage:imgName andColor:color andCategoryID:categoryID];
 }
 
 @end

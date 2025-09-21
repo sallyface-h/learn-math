@@ -91,7 +91,7 @@
 -(void)buttonTapped:(UIButton *)sender
 {
     if ([self.delegate respondsToSelector:@selector(mathHomeViewMultiButtonCell:andDidTapButtonAtIndex:)]) {
-        [self.delegate mathHomeViewMultiButtonCell:self andDidTapButtonAtIndex:self.tag];
+        [self.delegate mathHomeViewMultiButtonCell:self andDidTapButtonAtIndex:sender.tag];
     }
 }
 @end

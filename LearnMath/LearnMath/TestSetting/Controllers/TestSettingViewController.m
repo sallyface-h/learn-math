@@ -11,10 +11,12 @@
 @property (nonatomic, strong)TestSettingModels *model;
 @property (nonatomic, strong)NSIndexPath *singleBtnSelectedIndexPath;
 @property (nonatomic, assign)NSInteger multiBtnSelectedIndex;
+@property (nonatomic, strong) NSIndexPath *expandedIndexPath;
+
 @end
 
 @implementation TestSettingViewController
-
+/*
 static NSString * const singleButtonId = @"SingleCell";
 static NSString * const multiButtonId = @"MultiCell";
 static NSString * const headerId = @"header";
@@ -23,7 +25,7 @@ static NSString * const footerId = @"footer";
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [TestSettingNavigationBar configureNavigationViewController:self withMathCategory:self.category];
+    [TestSettingNavigationBar configureNavigationViewController:self withMathCategoryID:self.categoryID];
 }
 
 - (void)viewDidLoad {
@@ -38,14 +40,13 @@ static NSString * const footerId = @"footer";
     self.collectionView.layer.masksToBounds = YES;
     self.collectionView.layer.cornerRadius = LearnMathScale(30.0);
     self.collectionView.layer.maskedCorners = kCALayerMinXMinYCorner | kCALayerMaxXMinYCorner;
-    self.view.backgroundColor = self.navColor;
     [self.view addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
         make.bottom.leading.trailing.equalTo(self.view);
     }];
     
-    UIColor *navColor = [TestSettingNavigationBar configureNavigationViewController:self withMathCategory:self.category];
+    UIColor *navColor = [TestSettingNavigationBar configureNavigationViewController:self withMathCategoryID:self.categoryID];
     self.view.backgroundColor = navColor;
     
     self.collectionView.dataSource = self;
@@ -79,7 +80,6 @@ static NSString * const footerId = @"footer";
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if (indexPath.section == 0) {
         TestSettingViewSingleButtonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:singleButtonId forIndexPath:indexPath];
         cell.titleLabel.text = self.model.testScope[indexPath.row];
@@ -88,6 +88,15 @@ static NSString * const footerId = @"footer";
         } else {
             cell.settingScopeButton.layer.borderColor = [UIColor colorForSet:ColorSetSkillBorder].CGColor;
         }
+        if (indexPath.row == 1) {
+            cell.buttonType = ExpandButtonTypeOperations;
+        } else if (indexPath.row == 2) {
+            cell.buttonType = ExpandButtonTypeSkills;
+        }
+        DateManagerModels *manager = [[DateManagerModels alloc] init];
+        ExpandButtonModels *expandModel = [[ExpandButtonModels alloc] initWithSingleButtonModel:manager];
+        [cell configureWithExpandModel:expandModel];
+        
         [cell.settingScopeButton addTarget:self action:@selector(didSingleButton:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     } else {
@@ -113,7 +122,8 @@ static NSString * const footerId = @"footer";
     } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]){
         TestSettingFooterView *footer = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footerId forIndexPath:indexPath];
         if (indexPath.section == 1) {
-            [footer configureWithButtonTitle:@"Start!"];
+            [footer configureWithButtonTitle:@"Next"];
+            [footer.button addTarget:self action:@selector(didFooterViewButton:) forControlEvents:UIControlEventTouchUpInside];
             return footer;
         }
     }
@@ -135,13 +145,35 @@ static NSString * const footerId = @"footer";
     }
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    CGFloat width = SCREEN_WIDTH - LearnMathScale(24.0) * 2;
+        if (self.expandedIndexPath && [self.expandedIndexPath isEqual:indexPath]) {
+            if (indexPath.row == 1) {
+                DateManagerModels *manager = [[DateManagerModels alloc] init];
+                ExpandButtonModels *model = [[ExpandButtonModels alloc] initWithSingleButtonModel:manager];
+                CGFloat height = LearnMathScale(45.0) + model.title.count * (LearnMathScale(18.0) + LearnMathScale(12.0)) +LearnMathScale(20.0);
+                return CGSizeMake(width, height);
+            } else {
+                DateManagerModels *manager = [[DateManagerModels alloc] init];
+                ExpandButtonModels *model = [[ExpandButtonModels alloc] initWithSingleButtonModel:manager];
+                NSInteger totalCount = 0;
+                for (NSArray *subArray in model.skill) {
+                    totalCount += subArray.count;
+                }
+                CGFloat height = LearnMathScale(65.0) + totalCount * (LearnMathScale(18.0) + LearnMathScale(12.0)) + (LearnMathScale(16.0) + LearnMathScale(20.0)) * model.title.count;
+                return CGSizeMake(width, height);
+            }
+        } else {
+            return CGSizeMake(width, LearnMathScale(46.0));
+    }
+}
 #pragma  mark - 按钮点击方法
 - (void)didSingleButton:(UIButton *)sender
 {
     NSIndexPath *newIndexPath = [self.collectionView indexPathForCell:(TestSettingViewSingleButtonCell *)sender.superview.superview];
-    if ([newIndexPath isEqual:self.singleBtnSelectedIndexPath]) {
-        return;
-    }
+    
     NSIndexPath *oldIndexPath = self.singleBtnSelectedIndexPath;
     self.singleBtnSelectedIndexPath = newIndexPath;
     
@@ -159,6 +191,23 @@ static NSString * const footerId = @"footer";
     
     animateBorderColor(oldCell.settingScopeButton,[UIColor colorForSet:ColorSetSkillBorder]);
     animateBorderColor(newCell.settingScopeButton,[UIColor colorForSet:ColorSetPurple]);
+    
+    if (newIndexPath.row == 1 || newIndexPath.row == 2) {
+        NSMutableArray *reloadIndexPaths = [NSMutableArray array];
+        if (self.expandedIndexPath) {
+            if ([self.expandedIndexPath isEqual:newIndexPath]) {
+                [reloadIndexPaths addObject:newIndexPath];
+                self.expandedIndexPath = nil;
+            } else {
+                self.expandedIndexPath = newIndexPath;
+                [reloadIndexPaths addObject:newIndexPath];
+            }
+        } else {
+            self.expandedIndexPath = newIndexPath;
+            [reloadIndexPaths addObject:newIndexPath];
+        }
+        [self.collectionView reloadItemsAtIndexPaths:reloadIndexPaths];
+    }
 }
 
 - (void)didMultiButton:(UIButton *)sender
@@ -183,4 +232,10 @@ static NSString * const footerId = @"footer";
     animateBorderColor(cell.settingNumButtonArr[newIndex],[UIColor colorForSet:ColorSetPurple]);
 }
 
+- (void)didFooterViewButton:(UIButton *)sender
+{
+    ModesSelectedViewController *vc = [[ModesSelectedViewController alloc] init];
+    vc.categoryID = self.categoryID;
+    [self.navigationController pushViewController:vc animated:YES];
+}*/
 @end

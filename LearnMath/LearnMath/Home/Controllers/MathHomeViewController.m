@@ -8,10 +8,9 @@
 #import "MathHomeViewController.h"
 
 @interface MathHomeViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,MathHomeViewSingleButtonCellDelegate,MathHomeViewMultiButtonCellDelegate>
+@property (nonatomic, strong) HomeButtonViewModel *viewModel;
+@property (nonatomic, strong) NSArray<HomeMultiButtonModel *> *multiButtonModels;
 @property (nonatomic, strong) HomeSingleButtonModel *singleButtonModels;
-@property (nonatomic, strong) NSArray <HomeMultiButtonModel *> *multiButtonModels;
-
-
 @end
 
 @implementation MathHomeViewController
@@ -27,6 +26,12 @@ static NSString * const multiCellId  = @"MultiCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.viewModel = [[HomeButtonViewModel alloc] init];
+    [self.viewModel loadCategoryDate];
+    
+    self.singleButtonModels = self.viewModel.singleButtonModels;
+    self.multiButtonModels = self.viewModel.multiButtonModels;
+    
     MathHomeHeaderView *headerView = [[MathHomeHeaderView alloc] init];
     self.view.backgroundColor = [UIColor colorForSet:ColorSetDeepBlue];
     [self.view addSubview:headerView];
@@ -54,70 +59,11 @@ static NSString * const multiCellId  = @"MultiCell";
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    [self.collectionView reloadData];
     
     [self.collectionView registerClass:[MathHomeViewSingleButtonCell class] forCellWithReuseIdentifier:singleCellId];
     [self.collectionView registerClass:[MathHomeViewMultiButtonCell class] forCellWithReuseIdentifier:multiCellId];
- 
-    self.singleButtonModels = [HomeSingleButtonModel modelWithSingleButtonTitle:@[
-        @"Addition",
-        @"Subteaction",
-        @"Multiplication",
-        @"Division"
-    ]
-    andImage:@[
-        @"home_add",
-        @"home_sub",
-        @"home_mul",
-        @"home_div"
-    ]
-    andColor:@[
-        [UIColor colorForSet:ColorSetDeepOrange],
-        [UIColor colorForSet:ColorSetOrange],
-        [UIColor colorForSet:ColorSetBlue],
-        [UIColor colorForSet:ColorSetGreen]
-    ]
-    andCategory:@[
-        @(MathCategoryAddition),
-        @(MathCategorySubtraction),
-        @(MathCategoryMultiplication),
-        @(MathCategoryDivision)
-    ]];
     
-    HomeMultiButtonModel *firstCell = [HomeMultiButtonModel modelWithMultiButtonImgName:@[
-        @"nil",
-        @"home_history"
-    ]
-    andTitle:@[
-        @"Do a Test!",
-        @"nil"
-    ]
-    andColor:[UIColor colorForSet:ColorSetPink]
-    andCategory:@[
-        @(MathCategoryTest),
-        @(MathCategoryHistory)
-    ]];
-
-    HomeMultiButtonModel *secondCell = [HomeMultiButtonModel modelWithMultiButtonImgName:@[
-        @"home_date",
-        @"home_help",
-        @"home_setting",
-        @"home_subscription"
-    ]
-    andTitle:@[
-        @"nil",
-        @"nil",
-        @"nil",
-        @"nil"
-    ]
-    andColor:[UIColor colorForSet:ColorSetPurple]
-   andCategory:@[
-        @(MathCategoryDate),
-        @(MathCategoryHelp),
-        @(MathCategorySetting),
-        @(MathCategorySubscription)
-    ]];
-    
-    self.multiButtonModels = @[firstCell, secondCell];
 }
 
 
@@ -152,34 +98,53 @@ static NSString * const multiCellId  = @"MultiCell";
 {
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
     if (indexPath.row < self.singleButtonModels.title.count) {
-        [self jumpToCollectionViewWithMathCategory:[self.singleButtonModels.category[indexPath.row] integerValue]];
+        [self jumpToViewWithMathCategoryID:cell.categoryID];
     }
 }
 
 #pragma mark - MathHomeViewMultiButtonCellDelegate
-- (void)mathHomeViewMultiButtonCell:(MathHomeViewMultiButtonCell *)cell andDidTapButtonAtIndex:(NSInteger)index
+/*- (void)mathHomeViewMultiButtonCell:(MathHomeViewMultiButtonCell *)cell andDidTapButtonAtIndex:(NSInteger)index
 {
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
     if (indexPath.row >= self.singleButtonModels.title.count) {
         HomeMultiButtonModel *model = self.multiButtonModels[indexPath.row - self.singleButtonModels.title.count];
         MathCategory category = [model categoryAtIndex:index];
-        [self jumpToCollectionViewWithTest:category];
-    }
-}
+        switch (category) {
+                case MathCategoryTest:
+                    [self jumpToViewWithTest:category];
+                    break;
+                case MathCategoryHelp:
+                    [self jumpToViewWithHelp:category];
+                default:
+                    break;
+                }
+            }
+    }*/
+
 
 #pragma mark - 跳转方法
-- (void)jumpToCollectionViewWithMathCategory:(MathCategory)category
+- (void)jumpToViewWithMathCategoryID:(NSString *)categoryID
 {
     MathCategoryViewController *vc = [[MathCategoryViewController alloc] init];
-    vc.category = category;
+    NSLog(@"Tapped cell categoryID = %@", categoryID);
+    vc.categoryID = categoryID;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)jumpToCollectionViewWithTest:(MathCategory)category
+- (void)jumpToViewWithTest:(NSString *)categoryID
 {
     TestSettingViewController *vc = [[TestSettingViewController alloc] init];
-    vc.category = category;
+    vc.categoryID = categoryID;
+    vc.titleName = self.singleButtonModels.title;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)jumpToViewWithHelp:(MathCategory)category
+{
+    HelpViewController *vc = [[HelpViewController alloc] init];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

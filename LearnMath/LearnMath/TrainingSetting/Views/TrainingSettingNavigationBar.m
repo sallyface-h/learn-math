@@ -9,9 +9,9 @@
 
 @implementation TrainingSettingNavigationBar
 
-+ (UIColor *)configureNavigationViewController:(UIViewController *)vc withMathCategory:(MathCategory)category
++ (UIColor *)configureNavigationViewController:(UIViewController *)vc withMathCategoryID:(NSString *)categoryID
 {
-    UIColor *bgColor = [super configureNavigationViewController:vc withMathCategory:category];
+    UIColor *bgColor = [super configureNavigationViewController:vc withMathCategoryID:categoryID];
     vc.title = @"Set Up Training";
     return bgColor;
 }
