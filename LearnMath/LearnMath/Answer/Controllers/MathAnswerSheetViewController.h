@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) MathWorkSelectedTestOptions *selectedTestOptions;
 + (CGFloat)finalWidth;
 - (instancetype)initWithParams:(NSDictionary *)params;
-
++ (nullable UIColor *)getColor:(NSString *)categoryId;
 @end
 
 NS_ASSUME_NONNULL_END

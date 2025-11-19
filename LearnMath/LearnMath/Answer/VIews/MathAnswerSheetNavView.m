@@ -67,7 +67,7 @@
     self.currentLabel.text = [NSString stringWithFormat:@"%ld/%ld", (long)task.taskIndex, (long)weakSelf.entry.mode.total];
     self.bigCurrentLabel.text = [NSString stringWithFormat:@"%ld/%ld", (long)task.taskIndex, (long)weakSelf.entry.mode.total];
     
-    UIColor *color = [MathAnswerSheetViewController getColorWithCategoryId:task.question.categoryID];
+    UIColor *color = [MathAnswerSheetViewController getColor:task.question.categoryID];
     [self.countdownView updateBgColor:color];
     [self.timeView updateTask:task];
     

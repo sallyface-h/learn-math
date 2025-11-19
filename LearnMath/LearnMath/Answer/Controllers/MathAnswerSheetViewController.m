@@ -199,6 +199,21 @@
     [self.questionsGenerator start];
 }
 
++ (nullable UIColor *)getColor:(NSString *)categoryId
+{
+    if ([categoryId isEqualToString:@"caa56389-602f-4624-b81d-cbe0e7dd20a5"]) {
+        return [UIColor colorForSet:ColorSetDeepOrange];
+    } else if ([categoryId isEqualToString:@"b740d3e1-0d4e-4e38-9bd0-bb1a52113df3"]) {
+        return [UIColor colorForSet:ColorSetOrange];
+    } else if ([categoryId isEqualToString:@"121bae5f-0c9a-4d93-ba4b-c73ce9d58004"]) {
+        return [UIColor colorForSet:ColorSetBlue];
+    } else if ([categoryId isEqualToString:@"0e47f809-13af-4824-a7b8-00cdab5aa467"]) {
+        return [UIColor colorForSet:ColorSetGreen];
+    } else {
+        return nil;
+    }
+}
+
 - (void)mathAnswerSheetNavView:(MathAnswerSheetNavView *)mathAnswerSheetNavView didClickedBackAction:(BaseBackButton *)sender
 {
     [self.questionsGenerator finishByUser];
