@@ -1,0 +1,6 @@
+module ArithmeticPlayer {
+  umbrella header "ArithmeticPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "ArithmeticKit",
+  "version": "0.0.1",
+  "summary": "ArithmeticKit.",
+  "description": "this is ArithmeticKit",
+  "homepage": "https://github.com/vjieshao/Arithmetic_iOS.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jackie": "vhuangj@gmail.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/vjieshao/Arithmetic_Specs.git"
+  },
+  "source_files": "ArithmeticKit/**/*.{h,m,swift}",
+  "resource_bundles": {
+    "ArithmeticKit": [
+      "ArithmeticKit/**/*.storyboard",
+      "ArithmeticKit/**/*.xib",
+      "ArithmeticKit/**/*.xcassets",
+      "ArithmeticKit/**/*.lproj"
+    ]
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "dependencies": {
+    "AppToolKit": [],
+    "AppearanceKit": [],
+    "QTEventBus/AppModule": [],
+    "EachNavigationBar": [],
+    "pop": [],
+    "ProgressHUD": [],
+    "MJRefresh": [],
+    "Firebase/Crashlytics": [],
+    "Firebase/Performance": [],
+    "AnalyticsTracker": []
+  },
+  "swift_version": "5.0"
+}

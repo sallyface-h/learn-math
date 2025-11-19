@@ -1,0 +1,1 @@
+../../../QTEventBus/Sources/Core/QTEventBusCollection.h

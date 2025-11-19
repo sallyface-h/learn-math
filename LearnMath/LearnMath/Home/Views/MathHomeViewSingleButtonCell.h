@@ -1,0 +1,36 @@
+//
+//  MathHomeViewSingleButtonCell.h
+//  LearnMath
+//
+//  Created by 基 on 2025/9/3.
+//
+
+#import <UIKit/UIKit.h>
+#import "ArithmeticConstant.h"
+#import "UIColor+UIColor_Appearance.h"
+#import "UIFont+UIFont_Appearance.h"
+#import "HomeSingleButtonModel.h"
+@import Masonry;
+@import AppearanceKit;
+@class MathHomeViewSingleButtonCell;
+NS_ASSUME_NONNULL_BEGIN
+
+@protocol MathHomeViewSingleButtonCellDelegate <NSObject>
+
+- (void)mathHomeViewSingleButtonCellDidTapButton:(MathHomeViewSingleButtonCell *)cell;
+
+@end
+
+@interface MathHomeViewSingleButtonCell : UICollectionViewCell
+@property (nonatomic, strong) UILabel *categoryTitle;
+@property (nonatomic, strong) UIImageView *categoryImage;
+@property (nonatomic, strong) ScaleableButton *categoryButton;
+@property (nonatomic, strong) HomeSingleButtonModel *model;
+@property (nonatomic, strong) NSString *categoryID;
+@property (nonatomic, weak) id<MathHomeViewSingleButtonCellDelegate> delegate;
+
+- (void)configureWithModel:(HomeSingleButtonModel *)model atIndex:(NSInteger)index;
+
+@end
+
+NS_ASSUME_NONNULL_END

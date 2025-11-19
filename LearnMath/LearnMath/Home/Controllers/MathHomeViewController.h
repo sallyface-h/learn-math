@@ -1,0 +1,35 @@
+//
+//  MathHomeViewController.h
+//  LearnMath
+//
+//  Created by 基 on 2025/9/4.
+//
+
+#import <UIKit/UIKit.h>
+#import "BaseViewOCController.h"
+#import "MathHomeViewController.h"
+#import "ArithmeticConstant.h"
+#import "MathCateGoryViewCell.h"
+#import "MathCategoryViewController.h"
+#import "MathHomeViewMultiButtonCell.h"
+#import "MathHomeViewSingleButtonCell.h"
+#import "MathHomeHeaderView.h"
+#import "HomeSingleButtonModel.h"
+#import "HomeMultiButtonModel.h"
+#import "TestSettingViewController.h"
+#import "HelpViewController.h"
+#import "HomeButtonViewModel.h"
+#import "SubscribeViewController.h"
+#import "CategoryExchange.h"
+#import "SettingViewController.h"
+@import Masonry;
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface MathHomeViewController : BaseViewOCController
+
+@property (nonatomic, strong) UICollectionView *collectionView;
+@end
+
+
+NS_ASSUME_NONNULL_END

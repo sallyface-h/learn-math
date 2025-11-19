@@ -1,0 +1,6 @@
+module ProviderError {
+  umbrella header "ProviderError-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "ArithmeticDbService",
+  "version": "0.0.1",
+  "summary": "ArithmeticDbService.",
+  "description": "this is ArithmeticDbService",
+  "homepage": "https://github.com/vjieshao/Arithmetic_iOS.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jackie": "vhuangj@gmail.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/vjieshao/Arithmetic_Specs.git"
+  },
+  "source_files": "ArithmeticDbService/**/*.{m,swift}",
+  "resource_bundles": {
+    "ArithmeticDbService": [
+      "ArithmeticDbService/**/*.storyboard",
+      "ArithmeticDbService/**/*.xib",
+      "ArithmeticDbService/**/*.xcassets",
+      "ArithmeticDbService/**/*.lproj",
+      "ArithmeticDbService/**/*.realm"
+    ]
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "dependencies": {
+    "DbService": [],
+    "QTEventBus/AppModule": [],
+    "ArithmeticStoreKit": [],
+    "Mediator_MathCashier": []
+  },
+  "swift_version": "5.0"
+}

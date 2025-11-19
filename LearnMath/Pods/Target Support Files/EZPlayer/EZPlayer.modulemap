@@ -1,0 +1,6 @@
+module EZPlayer {
+  umbrella header "EZPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}

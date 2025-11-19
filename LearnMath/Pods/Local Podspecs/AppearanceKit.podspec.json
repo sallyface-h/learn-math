@@ -1,0 +1,41 @@
+{
+  "name": "AppearanceKit",
+  "version": "0.0.1",
+  "summary": "AppearanceKit.",
+  "description": "this is AppearanceKit",
+  "homepage": "https://github.com/vjieshao/Arithmetic_iOS.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jackie": "vhuangj@gmail.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/vjieshao/Arithmetic_Specs.git"
+  },
+  "source_files": "AppearanceKit/**/*.{m,swift}",
+  "resource_bundles": {
+    "AppearanceKit": [
+      "AppearanceKit/**/*.storyboard",
+      "AppearanceKit/**/*.xib",
+      "AppearanceKit/**/*.xcassets",
+      "AppearanceKit/**/*.lproj",
+      "AppearanceKit/**/*.mp3"
+    ]
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "dependencies": {
+    "AppToolKit": [],
+    "Parrot": [],
+    "SnapKit": [],
+    "AppStoreKit": [],
+    "RxSwift": [],
+    "RxCocoa": []
+  },
+  "swift_version": "5.0"
+}

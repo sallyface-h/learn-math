@@ -1,0 +1,6 @@
+module AnalyticsTracker {
+  umbrella header "AnalyticsTracker-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,368 @@
+PODS:
+  - AnalyticsTracker (0.0.1):
+    - FirebaseAnalytics
+  - AppearanceKit (0.0.1):
+    - AppStoreKit
+    - AppToolKit
+    - Parrot
+    - RxCocoa
+    - RxSwift
+    - SnapKit
+  - AppStoreKit (0.0.1):
+    - AppToolKit
+  - AppToolKit (0.0.1):
+    - JustLog
+    - QTEventBus/AppModule
+  - ArithmeticKit (0.0.1):
+    - AnalyticsTracker
+    - AppearanceKit
+    - AppToolKit
+    - EachNavigationBar
+    - Firebase/Crashlytics
+    - Firebase/Performance
+    - MJRefresh
+    - pop
+    - ProgressHUD
+    - QTEventBus/AppModule
+  - ArithmeticPlayer (0.0.1):
+    - AppearanceKit
+    - AppToolKit
+    - ArithmeticKit
+    - EZPlayer
+    - QTEventBus/AppModule
+    - SnapKit
+  - ArithmeticStoreKit (0.0.1):
+    - AppearanceKit
+    - AppToolKit
+    - ArithmeticKit
+    - ProgressHUD
+    - QTEventBus/AppModule
+    - RevenueCat
+  - DbService (0.0.1):
+    - AppToolKit
+    - Realm
+    - RealmSwift
+    - SwiftyJSON
+  - EachNavigationBar (2.1.2)
+  - EZPlayer (1.1.0):
+    - AppearanceKit
+    - ProgressHUD
+  - Firebase/CoreOnly (11.15.0):
+    - FirebaseCore (~> 11.15.0)
+  - Firebase/Crashlytics (11.15.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 11.15.0)
+  - Firebase/Performance (11.15.0):
+    - Firebase/CoreOnly
+    - FirebasePerformance (~> 11.15.0)
+  - FirebaseABTesting (11.15.0):
+    - FirebaseCore (~> 11.15.0)
+  - FirebaseAnalytics (11.15.0):
+    - FirebaseAnalytics/Default (= 11.15.0)
+    - FirebaseCore (~> 11.15.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.1)
+    - GoogleUtilities/MethodSwizzler (~> 8.1)
+    - GoogleUtilities/Network (~> 8.1)
+    - "GoogleUtilities/NSData+zlib (~> 8.1)"
+    - nanopb (~> 3.30910.0)
+  - FirebaseAnalytics/Default (11.15.0):
+    - FirebaseCore (~> 11.15.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleAppMeasurement/Default (= 11.15.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.1)
+    - GoogleUtilities/MethodSwizzler (~> 8.1)
+    - GoogleUtilities/Network (~> 8.1)
+    - "GoogleUtilities/NSData+zlib (~> 8.1)"
+    - nanopb (~> 3.30910.0)
+  - FirebaseCore (11.15.0):
+    - FirebaseCoreInternal (~> 11.15.0)
+    - GoogleUtilities/Environment (~> 8.1)
+    - GoogleUtilities/Logger (~> 8.1)
+  - FirebaseCoreExtension (11.15.0):
+    - FirebaseCore (~> 11.15.0)
+  - FirebaseCoreInternal (11.15.0):
+    - "GoogleUtilities/NSData+zlib (~> 8.1)"
+  - FirebaseCrashlytics (11.15.0):
+    - FirebaseCore (~> 11.15.0)
+    - FirebaseInstallations (~> 11.0)
+    - FirebaseRemoteConfigInterop (~> 11.0)
+    - FirebaseSessions (~> 11.0)
+    - GoogleDataTransport (~> 10.0)
+    - GoogleUtilities/Environment (~> 8.1)
+    - nanopb (~> 3.30910.0)
+    - PromisesObjC (~> 2.4)
+  - FirebaseInstallations (11.15.0):
+    - FirebaseCore (~> 11.15.0)
+    - GoogleUtilities/Environment (~> 8.1)
+    - GoogleUtilities/UserDefaults (~> 8.1)
+    - PromisesObjC (~> 2.4)
+  - FirebasePerformance (11.15.0):
+    - FirebaseCore (~> 11.15.0)
+    - FirebaseInstallations (~> 11.0)
+    - FirebaseRemoteConfig (~> 11.0)
+    - FirebaseSessions (~> 11.0)
+    - GoogleDataTransport (~> 10.0)
+    - GoogleUtilities/Environment (~> 8.1)
+    - GoogleUtilities/MethodSwizzler (~> 8.1)
+    - GoogleUtilities/UserDefaults (~> 8.1)
+    - nanopb (~> 3.30910.0)
+  - FirebaseRemoteConfig (11.15.0):
+    - FirebaseABTesting (~> 11.0)
+    - FirebaseCore (~> 11.15.0)
+    - FirebaseInstallations (~> 11.0)
+    - FirebaseRemoteConfigInterop (~> 11.0)
+    - FirebaseSharedSwift (~> 11.0)
+    - GoogleUtilities/Environment (~> 8.1)
+    - "GoogleUtilities/NSData+zlib (~> 8.1)"
+  - FirebaseRemoteConfigInterop (11.15.0)
+  - FirebaseSessions (11.15.0):
+    - FirebaseCore (~> 11.15.0)
+    - FirebaseCoreExtension (~> 11.15.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleDataTransport (~> 10.0)
+    - GoogleUtilities/Environment (~> 8.1)
+    - GoogleUtilities/UserDefaults (~> 8.1)
+    - nanopb (~> 3.30910.0)
+    - PromisesSwift (~> 2.1)
+  - FirebaseSharedSwift (11.15.0)
+  - FMDB (2.7.12):
+    - FMDB/standard (= 2.7.12)
+  - FMDB/Core (2.7.12)
+  - FMDB/standard (2.7.12):
+    - FMDB/Core
+  - GoogleAdsOnDeviceConversion (2.1.0):
+    - GoogleUtilities/Logger (~> 8.1)
+    - GoogleUtilities/Network (~> 8.1)
+    - nanopb (~> 3.30910.0)
+  - GoogleAppMeasurement/Core (11.15.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.1)
+    - GoogleUtilities/MethodSwizzler (~> 8.1)
+    - GoogleUtilities/Network (~> 8.1)
+    - "GoogleUtilities/NSData+zlib (~> 8.1)"
+    - nanopb (~> 3.30910.0)
+  - GoogleAppMeasurement/Default (11.15.0):
+    - GoogleAdsOnDeviceConversion (= 2.1.0)
+    - GoogleAppMeasurement/Core (= 11.15.0)
+    - GoogleAppMeasurement/IdentitySupport (= 11.15.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.1)
+    - GoogleUtilities/MethodSwizzler (~> 8.1)
+    - GoogleUtilities/Network (~> 8.1)
+    - "GoogleUtilities/NSData+zlib (~> 8.1)"
+    - nanopb (~> 3.30910.0)
+  - GoogleAppMeasurement/IdentitySupport (11.15.0):
+    - GoogleAppMeasurement/Core (= 11.15.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.1)
+    - GoogleUtilities/MethodSwizzler (~> 8.1)
+    - GoogleUtilities/Network (~> 8.1)
+    - "GoogleUtilities/NSData+zlib (~> 8.1)"
+    - nanopb (~> 3.30910.0)
+  - GoogleDataTransport (10.1.0):
+    - nanopb (~> 3.30910.0)
+    - PromisesObjC (~> 2.4)
+  - GoogleUtilities/AppDelegateSwizzler (8.1.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Environment (8.1.0):
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Logger (8.1.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/MethodSwizzler (8.1.0):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Network (8.1.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Privacy
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (8.1.0)":
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Privacy (8.1.0)
+  - GoogleUtilities/Reachability (8.1.0):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/UserDefaults (8.1.0):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - JustLog (3.8.0):
+    - SwiftyBeaver (~> 1.9.3)
+  - LookinServer (1.2.8):
+    - LookinServer/Core (= 1.2.8)
+  - LookinServer/Core (1.2.8)
+  - Masonry (1.1.0)
+  - MJRefresh (3.7.9)
+  - nanopb (3.30910.0):
+    - nanopb/decode (= 3.30910.0)
+    - nanopb/encode (= 3.30910.0)
+  - nanopb/decode (3.30910.0)
+  - nanopb/encode (3.30910.0)
+  - Parrot (0.0.6)
+  - pop (1.0.12)
+  - ProgressHUD (14.1.3)
+  - PromisesObjC (2.4.0)
+  - PromisesSwift (2.4.0):
+    - PromisesObjC (= 2.4.0)
+  - ProviderError (0.0.1):
+    - Parrot
+  - QTEventBus/AppModule (0.4.1):
+    - QTEventBus/Core
+  - QTEventBus/Core (0.4.1)
+  - Realm (20.0.3):
+    - Realm/Headers (= 20.0.3)
+  - Realm/Headers (20.0.3)
+  - RealmSwift (20.0.3):
+    - Realm (= 20.0.3)
+  - RevenueCat (5.44.1)
+  - RxCocoa (6.9.0):
+    - RxRelay (= 6.9.0)
+    - RxSwift (= 6.9.0)
+  - RxRelay (6.9.0):
+    - RxSwift (= 6.9.0)
+  - RxSwift (6.9.0)
+  - SevenSwitch (2.1.0)
+  - SnapKit (5.7.1)
+  - SwiftyBeaver (1.9.5)
+  - SwiftyJSON (5.0.2)
+
+DEPENDENCIES:
+  - AnalyticsTracker (from `../LearnMath/Frameworks/AnalyticsTracker`)
+  - AppearanceKit (from `../LearnMath/Frameworks/AppearanceKit`)
+  - AppStoreKit (from `../LearnMath/Frameworks/AppStoreKit`)
+  - AppToolKit (from `../LearnMath/Frameworks/AppToolKit`)
+  - ArithmeticKit (from `../LearnMath/Frameworks/ArithmeticKit`)
+  - ArithmeticPlayer (from `../LearnMath/Frameworks/ArithmeticPlayer`)
+  - ArithmeticStoreKit (from `../LearnMath/Frameworks/ArithmeticStoreKit`)
+  - DbService (from `../LearnMath/Frameworks/DbService`)
+  - EZPlayer (from `../LearnMath/Frameworks/EZPlayer`)
+  - FMDB
+  - LookinServer
+  - Masonry
+  - ProgressHUD (from `../LearnMath/Frameworks/ProgressHUD`)
+  - ProviderError (from `../LearnMath/Frameworks/ProviderError`)
+  - SevenSwitch (from `../LearnMath/Frameworks/SevenSwitch`)
+
+SPEC REPOS:
+  trunk:
+    - EachNavigationBar
+    - Firebase
+    - FirebaseABTesting
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseCoreExtension
+    - FirebaseCoreInternal
+    - FirebaseCrashlytics
+    - FirebaseInstallations
+    - FirebasePerformance
+    - FirebaseRemoteConfig
+    - FirebaseRemoteConfigInterop
+    - FirebaseSessions
+    - FirebaseSharedSwift
+    - FMDB
+    - GoogleAdsOnDeviceConversion
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleUtilities
+    - JustLog
+    - LookinServer
+    - Masonry
+    - MJRefresh
+    - nanopb
+    - Parrot
+    - pop
+    - PromisesObjC
+    - PromisesSwift
+    - QTEventBus
+    - Realm
+    - RealmSwift
+    - RevenueCat
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - SwiftyBeaver
+    - SwiftyJSON
+
+EXTERNAL SOURCES:
+  AnalyticsTracker:
+    :path: "../LearnMath/Frameworks/AnalyticsTracker"
+  AppearanceKit:
+    :path: "../LearnMath/Frameworks/AppearanceKit"
+  AppStoreKit:
+    :path: "../LearnMath/Frameworks/AppStoreKit"
+  AppToolKit:
+    :path: "../LearnMath/Frameworks/AppToolKit"
+  ArithmeticKit:
+    :path: "../LearnMath/Frameworks/ArithmeticKit"
+  ArithmeticPlayer:
+    :path: "../LearnMath/Frameworks/ArithmeticPlayer"
+  ArithmeticStoreKit:
+    :path: "../LearnMath/Frameworks/ArithmeticStoreKit"
+  DbService:
+    :path: "../LearnMath/Frameworks/DbService"
+  EZPlayer:
+    :path: "../LearnMath/Frameworks/EZPlayer"
+  ProgressHUD:
+    :path: "../LearnMath/Frameworks/ProgressHUD"
+  ProviderError:
+    :path: "../LearnMath/Frameworks/ProviderError"
+  SevenSwitch:
+    :path: "../LearnMath/Frameworks/SevenSwitch"
+
+SPEC CHECKSUMS:
+  AnalyticsTracker: 740b26f8359fa22617d5a46b96904f94696a8c21
+  AppearanceKit: 9df4bfcedcb4feecf1d73dcbfa890acc7dbc7f3a
+  AppStoreKit: bafe1ceda8734d81b4d9647816abaa2a7cfbde5a
+  AppToolKit: 7231d98a637beb4a6a232a433d00905aaf4e6ceb
+  ArithmeticKit: 62b037fc4abf42ec2c7fed0942ce258376f56ea9
+  ArithmeticPlayer: 5000cf9f44b6fa4a5ed876bb4e2477dc5709c855
+  ArithmeticStoreKit: 072b9a381f629d5ef944cbaee06717bf4c947513
+  DbService: 8e3ab17ec5d4eed93f2f83284fb3313ea9d6bde1
+  EachNavigationBar: b7af5e748c405bbe0ba3fbaec297f87154355af9
+  EZPlayer: 298ac1a66e407ed759649b675aec07aa821946a6
+  Firebase: d99ac19b909cd2c548339c2241ecd0d1599ab02e
+  FirebaseABTesting: 5e9d432834aebf27ab72100d37af44dfbe8d82f7
+  FirebaseAnalytics: 6433dfd311ba78084fc93bdfc145e8cb75740eae
+  FirebaseCore: efb3893e5b94f32b86e331e3bd6dadf18b66568e
+  FirebaseCoreExtension: edbd30474b5ccf04e5f001470bdf6ea616af2435
+  FirebaseCoreInternal: 9afa45b1159304c963da48addb78275ef701c6b4
+  FirebaseCrashlytics: e09d0bc19aa54a51e45b8039c836ef73f32c039a
+  FirebaseInstallations: 317270fec08a5d418fdbc8429282238cab3ac843
+  FirebasePerformance: 8710877e6ba0f6ca4940d10624f5302431b406ea
+  FirebaseRemoteConfig: b496646b82855e174a7f1e354c65e0e913085168
+  FirebaseRemoteConfigInterop: 1c6135e8a094cc6368949f5faeeca7ee8948b8aa
+  FirebaseSessions: b9a92c1c51bbb81e78fc3142cda6d925d700f8e7
+  FirebaseSharedSwift: e17c654ef1f1a616b0b33054e663ad1035c8fd40
+  FMDB: 728731dd336af3936ce00f91d9d8495f5718a0e6
+  GoogleAdsOnDeviceConversion: 2be6297a4f048459e0ae17fad9bfd2844e10cf64
+  GoogleAppMeasurement: 700dce7541804bec33db590a5c496b663fbe2539
+  GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
+  GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
+  JustLog: c4636ea332cf2c677bde5d58d67347880c6cc3e2
+  LookinServer: 1b2b61c6402ae29fa22182d48f5cd067b4e99e80
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
+  nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
+  Parrot: d499ab53082cb7e59fa29d1e79214e427bacc757
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  ProgressHUD: b736f0c6de97f37f64e847f80689c23a14026adf
+  PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+  PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
+  ProviderError: 6fb44d6481ecfb9fdb5ac024e8b2135e9c3c49b9
+  QTEventBus: ea42577d40303f11fb2392e1383fb5d4a7335609
+  Realm: 853e5089d6042dff807bda000277eadfe2da93d2
+  RealmSwift: f33c19577cefcbf681345d721fcbc7b42be4c949
+  RevenueCat: c63342889404269918c1196708246d7c21cf8e6d
+  RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
+  RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
+  RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
+  SevenSwitch: 5a9de8dfb1a9a17df4310dafa9a78991138c5ad8
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
+  SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
+
+PODFILE CHECKSUM: 3091510b2ffb92be0ec5e297c266b0787c0809d1
+
+COCOAPODS: 1.16.2

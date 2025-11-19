@@ -1,0 +1,6 @@
+module Pods_LearnMath {
+  umbrella header "Pods-LearnMath-umbrella.h"
+
+  export *
+  module * { export * }
+}

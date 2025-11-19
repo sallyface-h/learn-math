@@ -1,0 +1,19 @@
+{
+  "name": "SevenSwitch",
+  "version": "2.1.0",
+  "summary": "Local SevenSwitch component",
+  "homepage": "https://example.com",
+  "license": "MIT",
+  "authors": {
+    "YourName": "you@example.com"
+  },
+  "source": {
+    "path": "."
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source_files": "SevenSwitch/**/*.{swift,h,m}",
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
+}

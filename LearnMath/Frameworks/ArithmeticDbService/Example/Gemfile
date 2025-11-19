@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+source "https://rubygems.org"
+
+# gem "rails"
+
+gem 'rexml'
+gem 'cocoapods', '1.13.0'
+gem 'zabel', '1.0.5'
+gem 'activesupport', '~> 7.0.8'

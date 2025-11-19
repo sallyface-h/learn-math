@@ -1,0 +1,6 @@
+module AppStoreKit {
+  umbrella header "AppStoreKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

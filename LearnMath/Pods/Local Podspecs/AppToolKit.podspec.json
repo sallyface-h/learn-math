@@ -1,0 +1,40 @@
+{
+  "name": "AppToolKit",
+  "version": "0.0.1",
+  "summary": "AppToolKit.",
+  "description": "this is AppToolKit",
+  "homepage": "https://github.com/vjieshao/Arithmetic_iOS.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jackie": "vhuangj@gmail.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/vjieshao/Arithmetic_Specs.git"
+  },
+  "source_files": [
+    "AppToolKit/**/*.{m,swift}"
+  ],
+  "resource_bundles": {
+    "AppToolKit": [
+      "AppToolKit/**/*.storyboard",
+      "AppToolKit/**/*.xib",
+      "AppToolKit/**/*.xcassets",
+      "AppToolKit/**/*.lproj",
+      "AppToolKit/**/*.mp3",
+      "AppToolKit/**/*.wav"
+    ]
+  },
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "dependencies": {
+    "JustLog": [],
+    "QTEventBus/AppModule": []
+  },
+  "swift_version": "5.0"
+}

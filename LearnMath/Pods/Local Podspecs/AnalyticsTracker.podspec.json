@@ -1,0 +1,27 @@
+{
+  "name": "AnalyticsTracker",
+  "version": "0.0.1",
+  "summary": "AnalyticsTracker.",
+  "description": "this is AnalyticsTracker",
+  "homepage": "https://github.com/vjieshao/Arithmetic_iOS.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jackie": "vhuangj@gmail.com"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/vjieshao/Arithmetic_Specs.git"
+  },
+  "source_files": "AnalyticsTracker/**/*.swift",
+  "requires_arc": true,
+  "swift_versions": "5.0",
+  "dependencies": {
+    "FirebaseAnalytics": []
+  },
+  "swift_version": "5.0"
+}

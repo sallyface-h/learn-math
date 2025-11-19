@@ -1,0 +1,6 @@
+module DbService {
+  umbrella header "DbService-umbrella.h"
+
+  export *
+  module * { export * }
+}

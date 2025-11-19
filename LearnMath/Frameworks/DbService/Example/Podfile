@@ -1,0 +1,15 @@
+#source 'https://github.com/vjieshao/Arithmetic_Specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '14.0'
+
+target 'DbService_Example' do
+    # Uncomment this line if you're using Swift or would like to use dynamic frameworks
+    # use_frameworks!
+
+    pod 'Realm', '10.52.2', :modular_headers => true
+    pod 'RealmSwift', '10.52.2'
+    
+    # Debug
+    pod 'WoodPeckeriOS', :configurations => ['Debug']
+    
+end

@@ -1,0 +1,6 @@
+module ArithmeticKit {
+  umbrella header "ArithmeticKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
